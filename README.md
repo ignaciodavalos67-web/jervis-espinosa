@@ -31,6 +31,28 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 
 ## Deploy on Vercel
 
+This repository is a Next.js 14 App Router application. Its project root contains
+`package.json` and `next.config.mjs`; the routes live in `src/app`.
+
+- Build: `npm run build` (`next build`), generating the real production output in `.next`.
+- Serve that production build locally: `npm start` (`next start`).
+- Develop: `npm run dev`; only the development server uses `.next-dev` to avoid
+  overwriting production output.
+
+In Vercel Project Settings, verify:
+
+- **Framework Preset:** Next.js.
+- **Root Directory:** repository root (the folder containing `package.json`), not `src` or `src/app`.
+- **Build Command:** framework default, or `npm run build` if overridden.
+- **Output Directory:** disable Override and use the Next.js default. Remove any
+  previous `.next-production`, `public`, `out`, or `dist` override.
+- **Install Command:** automatic npm detection, or `npm ci` if an override is needed.
+
+No `vercel.json` override or static-export configuration is required. The former
+production `distDir: ".next-production"` caused output to be written somewhere
+other than the `.next` directory expected by the failing deployment. Do not create
+an empty `.next` directory or commit generated output to work around that error.
+
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.

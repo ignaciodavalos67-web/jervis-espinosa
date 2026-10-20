@@ -38,6 +38,6 @@
 - Only PNG brand files exist. The book uses the already approved menu glyph; its cover expands before a masked reveal of the original logo. This is a coordinated transition, not a true vector morph of supplied artwork.
 - A single fixed brand element remains in the measured header logo slot. The header has a placeholder rather than a second logo image. Refresh invalidates geometry, including viewport changes. Reduced motion bypasses the sequence and pauses video. No-JavaScript fallback exposes normal content/navigation.
 - Firm section and contact form use petroleum backgrounds; practice section remains neutral. Scroll progress draws the firm rule and practice grid. Interactive practice rows, pillar feedback, promise geometry and form focus treatments complete the section rhythm.
-- Production build uses .next-production; development keeps .next. This prevents build checks from overwriting live development chunks.
+- Production build uses the standard .next output required by the Vercel setup; development uses .next-dev so local build checks do not overwrite live development chunks.
 - Build, lint and type checks passed. Local HTTP checks confirm home HTML and every linked CSS/JS asset return 200.
 - Browser inventory is empty. Bidirectional visual playback, exact rendered alignment, mobile screenshots and performance metrics remain unverified in a browser.
