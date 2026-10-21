@@ -1,15 +1,13 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-
-import { ArrowDown, Pause, Play } from "lucide-react";
+import { useEffect, useRef } from "react";
+import Image from "next/image";
+import { ArrowDown } from "lucide-react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export default function HeroPresentation() {
   const root = useRef<HTMLDivElement>(null);
-  const video = useRef<HTMLVideoElement>(null);
-  const [playing, setPlaying] = useState(false);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -45,21 +43,10 @@ export default function HeroPresentation() {
         if (window.scrollY > 2 && opening.progress() < 1) opening.progress(1);
       };
       window.addEventListener("scroll", skipOpeningOnScroll, { passive: true });
-      const player = video.current;
-      if (player) player.play().then(() => setPlaying(true)).catch(() => setPlaying(false));
-      return () => { window.removeEventListener("scroll", skipOpeningOnScroll); ctx.revert(); player?.pause(); };
-    });
-    media.add("(prefers-reduced-motion: reduce)", () => {
-      video.current?.pause(); setPlaying(false);
+      return () => { window.removeEventListener("scroll", skipOpeningOnScroll); ctx.revert(); };
     });
     return () => media.revert();
   }, []);
-
-  const toggleVideo = () => {
-    if (!video.current) return;
-    if (video.current.paused) video.current.play().then(() => setPlaying(true)).catch(() => setPlaying(false));
-    else { video.current.pause(); setPlaying(false); }
-  };
 
   return (
     <div ref={root} className="cinematic-intro">
@@ -72,32 +59,43 @@ export default function HeroPresentation() {
         </div>
         <div className="intro-brand-screen">
           <div className="intro-logo-gate">
-          <div className="intro-logo" role="img" aria-label="Jervis & Espinosa Abogados" />
+            <div className="intro-logo" role="img" aria-label="Jervis & Espinosa Abogados" />
           </div>
         </div>
         <div className="intro-discover" aria-hidden="true">
           <span>SCROLL PARA DESCUBRIR</span>
           <span className="intro-scroll-line" />
         </div>
-    <section className="hero" aria-label="Presentación de Jervis & Espinosa">
-      <div className="hero-media" aria-hidden="true">
-        <video ref={video} src="/assets/quito-aerea.mp4" loop muted playsInline preload="metadata" />
-      </div>
-      <div className="hero-top hero-enter">
-        <span>JERVIS & ESPINOSA <span className="hero-top-sub">/ ABOGADOS</span></span>
-      </div>
-      <div className="hero-body">
-        <div className="hero-copy">
-          <p className="eyebrow hero-enter">Ecuador · Quito & Guayaquil</p>
-          <h1 className="hero-enter">Somos tu equipo,<br />tú nuestra prioridad.</h1>
-          <p className="hero-description hero-enter">Estudio jurídico con enfoque corporativo, litigio estratégico y asesoría multidisciplinaria.</p>
-        </div>
-      </div>
-      <div className="hero-bottom hero-enter">
-        <a href="#contenido-principal" className="explore-link"><ArrowDown size={18} /><span>Desliza para explorar</span></a>
-        <button onClick={toggleVideo} className="video-toggle" aria-label={playing ? "Pausar video" : "Reproducir video"}>{playing ? <Pause size={15} /> : <Play size={15} />}</button>
-      </div>
-    </section>
+        <section className="hero" aria-label="Presentación de Jervis & Espinosa">
+          <div className="hero-media" aria-hidden="true">
+            <div className="hero-ampersand-bg">
+              <Image
+                src="/assets/ampersand.png"
+                alt=""
+                width={1024}
+                height={905}
+                priority
+                className="hero-ampersand-img"
+              />
+            </div>
+          </div>
+          <div className="hero-top hero-enter">
+            <span>JERVIS & ESPINOSA <span className="hero-top-sub">/ ABOGADOS</span></span>
+          </div>
+          <div className="hero-body">
+            <div className="hero-copy">
+              <p className="eyebrow hero-enter">Ecuador · Quito & Guayaquil</p>
+              <h1 className="hero-enter">Somos tu equipo,<br />tú nuestra prioridad.</h1>
+              <p className="hero-description hero-enter">Estudio jurídico con enfoque corporativo, litigio estratégico y asesoría multidisciplinaria.</p>
+            </div>
+          </div>
+          <div className="hero-bottom hero-enter">
+            <a href="#contenido-principal" className="explore-link">
+              <ArrowDown size={18} />
+              <span>Desliza para explorar</span>
+            </a>
+          </div>
+        </section>
       </div>
     </div>
   );

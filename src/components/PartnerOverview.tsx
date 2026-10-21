@@ -22,7 +22,19 @@ export default function PartnerOverview({ selectedId, onSelect }: PartnerOvervie
         </div>
         <div className="partners-portraits">
           {partners.map((partner) => {
-            const portrait = partner.portrait && <Image unoptimized src={partner.portrait.src} alt="" width={partner.portrait.width} height={partner.portrait.height} sizes="(max-width: 600px) 44vw, (max-width: 1000px) 40vw, 30vw" priority={Boolean(onSelect)} />;
+            const portrait = partner.portrait && (
+              <div className="partner-portrait-frame">
+                <Image
+                  unoptimized
+                  src={partner.portrait.src}
+                  alt={partner.name}
+                  width={partner.portrait.width}
+                  height={partner.portrait.height}
+                  sizes="(max-width: 600px) 44vw, (max-width: 1000px) 40vw, 30vw"
+                  priority={Boolean(onSelect)}
+                />
+              </div>
+            );
             return onSelect ? (
               <button key={partner.id} type="button" onClick={() => onSelect(partner.id)} className="partner-choice" aria-pressed={selectedId === partner.id} aria-controls="perfil-socio">
                 {portrait}
