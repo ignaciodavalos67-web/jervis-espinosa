@@ -14,7 +14,7 @@ const TOPICS = [
 ];
 
 export default function ContactSection() {
-  const [openDrawer, setOpenDrawer] = useState<"whatsapp" | "form" | null>("form");
+  const [openDrawer, setOpenDrawer] = useState<"whatsapp" | "form" | null>(null);
   const [selectedTopic, setSelectedTopic] = useState<string>(TOPICS[0]);
   const [submitted, setSubmitted] = useState(false);
   const [formData, setFormData] = useState({
@@ -39,7 +39,7 @@ export default function ContactSection() {
         {/* Editorial Header */}
         <header className="elegant-contact-header">
           <p className="elegant-contact-label">
-            <span aria-hidden="true">04</span> CONTACTO & ASESORÍA
+            CONTACTO & ASESORÍA
           </p>
           <div className="elegant-contact-title-wrap">
             <h2 id="contact-heading" className="elegant-contact-title">

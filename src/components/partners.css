@@ -3,7 +3,7 @@
 .partners-overview { padding: clamp(54px,6vw,88px) 0 64px; background: #101B1C; color: #F1EFE9; }
 .partners-label { margin-bottom: 28px; font-family: var(--font-sans),sans-serif; font-size: 10px; font-weight: 500; letter-spacing: .24em; color: #FFF; }
 .partners-headline { max-width: 1050px; font-family: var(--font-serif),Georgia,serif; font-size: clamp(44px,5.8vw,88px); font-weight: 400; line-height: 1.06; letter-spacing: -.025em; }
-.partners-headline > span { display: block; font-family: var(--font-sans),sans-serif; font-size: .8em; font-style: normal; font-weight: 400; line-height: 1.22; color: #FFF; }
+.partners-headline > span { display: block; font-family: var(--font-sans),sans-serif; font-size: .8em; font-style: normal; font-weight: 400; line-height: 1.22; color: #BEDCE7; }
 .partners-portraits { max-width: 1060px; margin: 48px auto 0; display: grid; grid-template-columns: 1fr 1fr; gap: clamp(24px,7vw,100px); }
 .partner-choice { display: flex; flex-direction: column; align-items: center; width: 100%; color: #F1EFE9; text-align: left; background: transparent; border: 0; padding: 0; }
 .partner-choice img { width: min(100%,360px); height: auto; object-fit: contain; transition: transform .3s ease; }

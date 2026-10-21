@@ -296,9 +296,15 @@ footer .cursor-pointer { cursor: default; }
   --rule-dark: #F1EFE930;
 }
 .site-shell, #contenido-principal { background: var(--surface-deep); color: var(--ink-primary); }
-.value-section { background: #101B1C; color: #F1EFE9; padding: clamp(80px,9vw,144px) 0 clamp(72px,8vw,128px); border-bottom: 1px solid #F1EFE930; }
+.value-section { background: #101B1C; color: #F1EFE9; padding: 0 0 clamp(72px,8vw,128px); border-bottom: 1px solid #F1EFE930; position: relative; }
+.value-header-hero { position: relative; overflow: hidden; padding: clamp(84px,10vw,144px) 0 clamp(68px,8vw,112px); border-bottom: 1px solid rgba(241,239,233,0.12); }
+.value-video-wrapper { position: absolute; inset: 0; pointer-events: none; overflow: hidden; z-index: 0; }
+.value-bg-video { width: 100%; height: 100%; object-fit: cover; object-position: center 35%; opacity: 0.68; filter: saturate(0.96) contrast(1.02); }
+.value-video-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(16,27,28,0.48) 0%, rgba(16,27,28,0.24) 45%, rgba(16,27,28,0.65) 80%, #101B1C 100%); }
+.value-header-content { position: relative; z-index: 1; }
+.value-body-container { padding-top: clamp(36px,5vw,60px); }
 .value-container { max-width: 1440px; margin: 0 auto; padding: 0 clamp(24px,6vw,96px); }
-.value-label { display: flex; align-items: center; gap: 16px; margin-bottom: clamp(36px,5vw,72px); color: #C4CFCA; font-size: 10px; line-height: 1.6; letter-spacing: .24em; }
+.value-label { display: flex; align-items: center; gap: 16px; margin-bottom: clamp(24px,3.5vw,44px); color: #C4CFCA; font-size: 10px; line-height: 1.6; letter-spacing: .24em; }
 .value-label > span { display: block; width: 36px; height: 1px; background: #AABFB5; }
 .value-heading { max-width: 1150px; font-family: var(--font-serif),Georgia,serif; font-size: clamp(40px,5.1vw,80px); font-weight: 400; line-height: 1.12; letter-spacing: -.025em; text-wrap: balance; }
 .value-support { width: 100%; max-width: none; margin-top: clamp(30px,4vw,56px); margin-left: 0; display: flex; flex-direction: column; gap: 24px; }
@@ -444,7 +450,7 @@ footer .border-petrol-800\/60 { border-color: var(--champagne-rule); }
   .about-section h2, .vision-section h2 { font-size: clamp(38px,8vw,54px); }
 }
 
-.value-heading .value-modern { font-family: var(--font-sans),system-ui,sans-serif; font-weight: 400; font-style: normal; color: inherit; font-size: .83em; letter-spacing: -.035em; }
+.value-heading .value-modern { font-family: var(--font-sans),system-ui,sans-serif; font-weight: 400; font-style: normal; color: #BEDCE7; font-size: .83em; letter-spacing: -.035em; }
 
 /* Concise homepage: white promise, two editorial links, approved company text. */
 .vision-section, .vision-section > div > div { background: #E8E1D5; color: #154F55; }

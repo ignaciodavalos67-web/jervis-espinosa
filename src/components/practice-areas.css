@@ -20,12 +20,58 @@
   padding: clamp(64px, 8vw, 128px) 0;
   border-bottom: 1px solid rgba(241, 239, 233, 0.12);
   position: relative;
+  overflow: hidden;
+}
+
+/* Background Ampersand Watermark (consistent with Hero Presentation) */
+.expertise-ampersand-bg {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.expertise-ampersand-img {
+  position: absolute;
+  right: -8%;
+  top: 30px;
+  width: auto;
+  height: clamp(650px, 85vw, 1200px);
+  max-height: 1350px;
+  object-fit: contain;
+  opacity: 0.15;
+  pointer-events: none;
+  user-select: none;
+}
+
+@media (max-width: 900px) {
+  .expertise-ampersand-img {
+    right: -18%;
+    top: 50px;
+    height: 750px;
+    opacity: 0.14;
+  }
+}
+
+@media (max-width: 600px) {
+  .expertise-ampersand-img {
+    right: -28%;
+    top: 70px;
+    height: 580px;
+    opacity: 0.13;
+  }
 }
 
 .master-accordion-container {
   max-width: 1440px;
   margin: 0 auto;
   padding: 0 clamp(24px, 6vw, 96px);
+  position: relative;
+  z-index: 1;
 }
 
 /* Editorial Header */

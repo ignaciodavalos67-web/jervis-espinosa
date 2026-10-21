@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { Minus, ArrowUpRight } from "lucide-react";
 import BrandAmpersand from "./BrandAmpersand";
@@ -21,12 +22,10 @@ export default function ExpertiseStory({
   areas,
   title,
   sectionId,
-  label,
-  sectionNumber,
   introduction,
 }: ExpertiseStoryProps) {
-  // First item open by default for immediate engagement
-  const [openId, setOpenId] = useState<string | null>(areas[0]?.id || null);
+  // All accordion items closed by default
+  const [openId, setOpenId] = useState<string | null>(null);
 
   const toggleArea = (id: string) => {
     setOpenId((prev) => (prev === id ? null : id));
@@ -34,12 +33,22 @@ export default function ExpertiseStory({
 
   return (
     <section id={sectionId} className="master-accordion-section" aria-labelledby="expertise-heading">
+      {/* Background Ampersand Watermark (same as hero presentation) */}
+      <div className="expertise-ampersand-bg" aria-hidden="true">
+        <Image
+          unoptimized
+          priority
+          src="/assets/ampersand.png"
+          alt=""
+          width={1024}
+          height={905}
+          className="expertise-ampersand-img"
+        />
+      </div>
+
       <div className="master-accordion-container">
         {/* Editorial Header */}
         <header className="master-accordion-header">
-          <p className="master-accordion-label">
-            <span aria-hidden="true">{sectionNumber}</span> / {label.toUpperCase()}
-          </p>
           <div className="master-accordion-title-wrap">
             <h1 id="expertise-heading" className="master-accordion-title">
               {title}
@@ -81,11 +90,6 @@ export default function ExpertiseStory({
                   </div>
 
                   <div className="trigger-right">
-                    {area.services && area.services.length > 0 && (
-                      <span className="trigger-services-count">
-                        {area.services.length} {area.services.length === 1 ? "servicio" : "servicios"}
-                      </span>
-                    )}
                     <span className="trigger-toggle-btn" aria-hidden="true">
                       {isOpen ? <Minus size={18} /> : <BrandAmpersand size={18} />}
                     </span>

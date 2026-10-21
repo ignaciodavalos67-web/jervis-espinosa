@@ -33,10 +33,10 @@ export default function ExpertisePreviews() {
 
   return (
     <div ref={root} className="expertise-previews">
-      {previews.map((preview, index) => (
+      {previews.map((preview) => (
         <section key={preview.id} id={preview.id} className="expertise-preview" aria-labelledby={`${preview.id}-heading`}>
           <div className="expertise-preview-inner">
-            <h2 id={`${preview.id}-heading`}><span className="expertise-preview-number" aria-hidden="true">0{index + 2}</span>{preview.title}</h2>
+            <h2 id={`${preview.id}-heading`}>{preview.title}</h2>
             <Link href={preview.href}>{preview.action}<ArrowUpRight size={20} aria-hidden="true" /></Link>
           </div>
         </section>
