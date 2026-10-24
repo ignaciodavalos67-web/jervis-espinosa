@@ -9,39 +9,27 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        champagne: "#C6B48F",
-        midnight: {
-          DEFAULT: "#154F55",
-          dark: "#0D3236",
-          light: "#1B6067",
-        },
-        petrol: {
-          DEFAULT: "#154F55",
-          50: "#F2F6F7",
-          100: "#E4EDEF",
-          200: "#C9DCDF",
-          600: "#2B5C62",
-          700: "#1F4246",
-          800: "#154F55",
-          900: "#173135",
-          950: "#0D1E20",
-        },
-        celeste: {
-          DEFAULT: "#BEDCE7",
-          light: "#E1EEF4",
-          dark: "#A4CCD9",
+        night: {
+          DEFAULT: "#101B1C",
+          dark: "#0B1314",
+          light: "#172628",
         },
         ivory: {
-          DEFAULT: "#F5F3ED",
-          light: "#FAF9F6",
-          muted: "#ECE8DF",
-          border: "#E3DDD0",
-          dark: "#D8D1C2",
+          DEFAULT: "#F1EFE9",
+          pure: "#FAF9F5",
+          muted: "#E5E2D8",
+          dark: "#D5D1C3",
+        },
+        champagne: {
+          DEFAULT: "#C6B48F",
+          light: "#D8CBB0",
+          dark: "#B4A076",
         },
       },
       fontFamily: {
-        serif: ["var(--font-serif)", "Cormorant Garamond", "Georgia", "serif"],
-        sans: ["var(--font-sans)", "Plus Jakarta Sans", "system-ui", "sans-serif"],
+        serif: ["Poppins", "var(--font-sans)", "system-ui", "sans-serif"],
+        sans: ["Poppins", "var(--font-sans)", "system-ui", "sans-serif"],
+        poppins: ["Poppins", "var(--font-sans)", "system-ui", "sans-serif"],
       },
     },
   },

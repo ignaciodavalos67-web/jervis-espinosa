@@ -3,8 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Minus, ArrowUpRight } from "lucide-react";
-import BrandAmpersand from "./BrandAmpersand";
+import { ArrowUpRight } from "lucide-react";
 import type { PracticeArea } from "@/data/practiceAreas";
 import "./practice-areas.css";
 
@@ -12,8 +11,8 @@ interface ExpertiseStoryProps {
   areas: PracticeArea[];
   title: string;
   sectionId: string;
-  label: string;
-  sectionNumber: string;
+  label?: string;
+  sectionNumber?: string;
   introduction?: string;
   indexLabel?: string;
 }
@@ -83,16 +82,7 @@ export default function ExpertiseStory({
                   aria-controls={`content-${area.id}`}
                 >
                   <div className="trigger-left">
-                    <span className="trigger-num" aria-hidden="true">
-                      {area.number}
-                    </span>
                     <h2 className="trigger-title">{area.title}</h2>
-                  </div>
-
-                  <div className="trigger-right">
-                    <span className="trigger-toggle-btn" aria-hidden="true">
-                      {isOpen ? <Minus size={18} /> : <BrandAmpersand size={18} />}
-                    </span>
                   </div>
                 </button>
 
@@ -127,9 +117,6 @@ export default function ExpertiseStory({
                         <ol className="drawer-services-list" role="list">
                           {area.services.map((service, sIdx) => (
                             <li key={sIdx} className="drawer-service-item">
-                              <span className="service-idx" aria-hidden="true">
-                                {String(sIdx + 1).padStart(2, "0")}
-                              </span>
                               <div className="service-details">
                                 <h3 className="service-name">
                                   {service.title.replace(/\.$/, "")}
