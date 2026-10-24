@@ -29,7 +29,7 @@ interface ReinoWorksShowcaseProps {
 
 export default function ReinoWorksShowcase({
   id = "works",
-  bannerTag = "JERVIS & ESPINOSA",
+  bannerTag,
   bannerTitle,
   bannerSubtitle,
   items,
@@ -125,14 +125,16 @@ export default function ReinoWorksShowcase({
   return (
     <div ref={containerRef} id={id} className="relative bg-[#101B1C] text-[#F1EFE9] min-h-screen">
       {/* Banner Section (Exact Reino Studio typography & spacing) */}
-      <section className="pt-36 sm:pt-48 md:pt-56 pb-20 sm:pb-28 px-6 sm:px-12 lg:px-24 max-w-7xl mx-auto">
-        <div className="flex items-center gap-4 mb-8 sm:mb-12">
-          <span className="w-8 h-[1px] bg-[#C6B48F]" aria-hidden="true" />
-          <span className="font-poppins text-xs uppercase tracking-[0.24em] font-medium text-[#C6B48F]">
-            {bannerTag}
-          </span>
-        </div>
-        <h1 className="font-poppins text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-[1.05] tracking-[-0.03em] text-[#F1EFE9] max-w-5xl">
+      <section className="pt-36 sm:pt-44 md:pt-52 pb-16 sm:pb-24 px-6 sm:px-12 lg:px-24 max-w-7xl mx-auto">
+        {bannerTag && (
+          <div className="flex items-center gap-4 mb-8 sm:mb-12">
+            <span className="w-8 h-[1px] bg-[#C6B48F]" aria-hidden="true" />
+            <span className="font-poppins text-xs uppercase tracking-[0.24em] font-medium text-[#C6B48F]">
+              {bannerTag}
+            </span>
+          </div>
+        )}
+        <h1 className="font-poppins text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-bold leading-[0.95] tracking-[-0.035em] text-[#F1EFE9] max-w-5xl uppercase">
           {bannerTitle}
         </h1>
         {bannerSubtitle && (
@@ -204,19 +206,19 @@ export default function ReinoWorksShowcase({
                     />
                   </div>
 
-                  {/* Work Services as Clean Text Below Media (No paragraph explanation, no rounded buttons) */}
+                  {/* Work Services as Clean Text Below Media (Subtle, refined small bullets) */}
                   <div className="relative z-10 space-y-4 pt-1">
                     {item.services && item.services.length > 0 && (
                       <ul
-                        className={`reino-work-item-description flex flex-wrap items-center gap-x-6 gap-y-2.5 font-poppins text-base sm:text-xl md:text-2xl font-normal text-[#F1EFE9]/85 tracking-tight ${
+                        className={`reino-work-item-description flex flex-wrap items-center gap-x-4 gap-y-2 font-poppins text-xs sm:text-sm font-normal text-[#F1EFE9]/70 tracking-normal ${
                           isRightAligned ? "md:justify-end" : "justify-start"
                         }`}
                       >
                         {item.services.map((service, sIdx) => (
-                          <li key={sIdx} className="inline-flex items-center gap-3">
+                          <li key={sIdx} className="inline-flex items-center gap-2">
                             {sIdx > 0 && (
                               <span
-                                className="w-1.5 h-1.5 rounded-full bg-[#C6B48F]"
+                                className="w-1 h-1 rounded-full bg-[#C6B48F]/80"
                                 aria-hidden="true"
                               />
                             )}

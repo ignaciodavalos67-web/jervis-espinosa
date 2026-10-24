@@ -89,9 +89,7 @@ export default function SectorsPage() {
       <main id="contenido-principal" tabIndex={-1}>
         <ReinoWorksShowcase
           id="sectores"
-          bannerTag="SECTORES ESTRATÉGICOS"
-          bannerTitle="Entendimiento profundo de las industrias neurálgicas del país."
-          bannerSubtitle="Acompañamos a corporaciones locales e internacionales en los sectores donde la certeza jurídica determina el éxito."
+          bannerTitle="SECTORES"
           items={sectorWorksItems}
         />
       </main>

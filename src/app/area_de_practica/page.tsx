@@ -89,10 +89,8 @@ export default function PracticePage() {
       <Navbar />
       <main id="contenido-principal" tabIndex={-1}>
         <ReinoWorksShowcase
-          id="areas-de-especialidad"
-          bannerTag="ÁREAS DE ESPECIALIDAD"
-          bannerTitle="Asesoramiento jurídico con rigor estratégico y visión global."
-          bannerSubtitle="Acompañamos a organizaciones líderes e inversionistas en los momentos clave de su trayectoria en Ecuador."
+          id="areas-de-practica"
+          bannerTitle="ÁREAS DE PRÁCTICA"
           items={practiceWorksItems}
         />
       </main>
