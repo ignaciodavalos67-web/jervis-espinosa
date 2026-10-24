@@ -1,7 +1,7 @@
 import CinematicIntro from "@/components/CinematicIntro";
 import Navbar from "@/components/Navbar";
-import PracticeAreasPreview from "@/components/PracticeAreasPreview";
 import ValueProposition from "@/components/ValueProposition";
+import PracticeAreasPreview from "@/components/PracticeAreasPreview";
 import SectorsPreview from "@/components/SectorsPreview";
 import EditorialContact from "@/components/EditorialContact";
 import Footer from "@/components/Footer";
@@ -18,16 +18,16 @@ export default function Home() {
         <CinematicIntro />
 
         <div id="contenido-principal" tabIndex={-1}>
-          {/* 2. Áreas de Práctica */}
-          <PracticeAreasPreview />
-
-          {/* 3. Propuesta de Valor & Nuestro Compromiso (en la mitad de Áreas de Práctica y Sectores) */}
+          {/* 2. Propuesta de valor (Warm Ivory) */}
           <ValueProposition />
 
-          {/* 4. Sectores */}
+          {/* 3. Áreas de Práctica (Dark Night Green, 50/50 layout, no arrows, no numbers) */}
+          <PracticeAreasPreview />
+
+          {/* 4. Sectores (Warm Ivory, photographic asymmetrical editorial) */}
           <SectorsPreview />
 
-          {/* 5. Contacto */}
+          {/* 5. Final Contact Experience (Howard-inspired, Dark Night Green, "Conversemos") */}
           <EditorialContact />
         </div>
       </main>
