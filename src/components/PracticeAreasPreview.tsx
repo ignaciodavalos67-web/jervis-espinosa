@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import BrandAmpersand from "./BrandAmpersand";
 
 const practiceMarqueeItems = [
   "TRIBUTARIO E INVERSIONES",
@@ -16,7 +17,7 @@ export default function PracticeAreasPreview() {
   return (
     <section
       id="areas-de-practica"
-      className="relative bg-[#101B1C] text-[#F1EFE9] py-24 sm:py-32 md:py-40 px-6 sm:px-12 lg:px-24 overflow-hidden border-none"
+      className="relative bg-[#101B1C] text-[#F1EFE9] py-20 sm:py-28 md:py-32 px-6 sm:px-12 lg:px-24 overflow-hidden border-none"
       aria-labelledby="practices-portal-heading"
     >
       <div className="max-w-7xl mx-auto">
@@ -63,7 +64,7 @@ export default function PracticeAreasPreview() {
                     key={idx}
                     className="font-poppins text-lg sm:text-2xl md:text-3xl font-medium uppercase tracking-tight text-[#F1EFE9]/85 inline-flex items-center gap-6 sm:gap-10"
                   >
-                    <span className="text-[#C6B48F]">&bull;</span>
+                    <BrandAmpersand className="text-[#C6B48F] shrink-0" />
                     <span>{item}</span>
                   </span>
                 ))}

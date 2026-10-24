@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import BrandAmpersand from "./BrandAmpersand";
 
 const sectorMarqueeItems = [
   "TELECOMUNICACIONES",
@@ -16,7 +17,7 @@ export default function SectorsPreview() {
   return (
     <section
       id="sectores"
-      className="relative bg-[#F1EFE9] text-[#101B1C] py-24 sm:py-32 md:py-40 px-6 sm:px-12 lg:px-24 overflow-hidden border-none"
+      className="relative bg-[#F1EFE9] text-[#101B1C] pt-20 sm:pt-28 md:pt-32 pb-16 sm:pb-20 md:pb-24 px-6 sm:px-12 lg:px-24 overflow-hidden border-none"
       aria-labelledby="sectors-portal-heading"
     >
       <div className="max-w-7xl mx-auto">
@@ -63,7 +64,7 @@ export default function SectorsPreview() {
                     key={idx}
                     className="font-poppins text-lg sm:text-2xl md:text-3xl font-medium uppercase tracking-tight text-[#101B1C]/85 inline-flex items-center gap-6 sm:gap-10"
                   >
-                    <span className="text-[#C6B48F]">&bull;</span>
+                    <BrandAmpersand className="text-[#C6B48F] shrink-0" />
                     <span>{item}</span>
                   </span>
                 ))}

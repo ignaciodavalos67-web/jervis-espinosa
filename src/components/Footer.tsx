@@ -13,7 +13,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-[#101B1C] text-[#F1EFE9]/80 pt-16 pb-12 px-6 sm:px-12 lg:px-24">
+    <footer className="bg-[#101B1C] text-[#F1EFE9]/80 pt-10 sm:pt-12 pb-12 px-6 sm:px-12 lg:px-24 border-t border-white/10">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 pb-14 border-b border-white/10">
           {/* Brand info */}

@@ -7,15 +7,17 @@ interface BrandAmpersandProps {
 
 export default function BrandAmpersand({
   className = "",
-  size = 18,
+  size,
 }: BrandAmpersandProps) {
+  const inlineSize = size
+    ? { width: `${size}px`, height: `${size}px` }
+    : undefined;
+
   return (
     <span
-      className={`brand-ampersand-icon ${className}`}
+      className={`brand-ampersand-icon inline-block ${size ? "" : "w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7"} ${className}`}
       style={{
-        display: "inline-block",
-        width: `${size}px`,
-        height: `${size}px`,
+        ...inlineSize,
         mask: "url('/assets/ampersand-mark.png') center / contain no-repeat",
         WebkitMask: "url('/assets/ampersand-mark.png') center / contain no-repeat",
         backgroundColor: "currentColor",

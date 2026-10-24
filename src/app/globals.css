@@ -13,7 +13,7 @@
 }
 
 .animate-marquee-slider {
-  animation: marquee-slider 24s linear infinite;
+  animation: marquee-slider 75s linear infinite;
   will-change: transform;
 }
 

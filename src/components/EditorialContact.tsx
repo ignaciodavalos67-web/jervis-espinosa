@@ -109,12 +109,12 @@ export default function EditorialContact() {
     <section
       ref={sectionRef}
       id="contacto"
-      className="relative bg-[#101B1C] text-[#F1EFE9] pt-28 sm:pt-40 md:pt-48 pb-24 sm:pb-32 px-6 sm:px-12 lg:px-24 overflow-hidden border-none"
+      className="relative bg-[#101B1C] text-[#F1EFE9] pt-14 sm:pt-20 md:pt-24 pb-12 sm:pb-16 px-6 sm:px-12 lg:px-24 overflow-hidden border-none"
       aria-labelledby="contact-heading"
     >
       <div className="max-w-7xl mx-auto">
         {/* Minimal Category Tag */}
-        <div ref={tagRef} className="flex items-center gap-4 mb-10 sm:mb-14">
+        <div ref={tagRef} className="flex items-center gap-4 mb-6 sm:mb-8">
           <span className="w-8 h-[1px] bg-[#C6B48F]" aria-hidden="true" />
           <span className="font-poppins text-xs uppercase tracking-[0.24em] font-medium text-[#C6B48F]">
             CONTACTO & ALIANZAS
@@ -122,7 +122,7 @@ export default function EditorialContact() {
         </div>
 
         {/* Monumental Reino Studio "SAY HI!" style title: CONTÁCTANOS */}
-        <div className="mb-14 sm:mb-20 overflow-hidden">
+        <div className="mb-6 sm:mb-8 overflow-hidden">
           <a
             href="https://wa.me/593999999999?text=Hola,%20quisiera%20coordinar%20una%20consulta%20con%20Jervis%20%26%20Espinosa."
             target="_blank"
@@ -147,13 +147,13 @@ export default function EditorialContact() {
             </div>
             <div
               ref={lineRef}
-              className="w-full h-[2px] bg-white/15 group-hover:bg-[#C6B48F] transition-colors duration-500 mt-8 will-change-transform"
+              className="w-full h-[2px] bg-white/15 group-hover:bg-[#C6B48F] transition-colors duration-500 mt-6 sm:mt-8 will-change-transform"
             />
           </a>
         </div>
 
         {/* Social Logos: Instagram & LinkedIn (justo abajo de Contáctanos) */}
-        <div className="flex items-center gap-8 mb-12 sm:mb-16 text-[#F1EFE9]">
+        <div className="flex items-center gap-8 mb-8 sm:mb-10 text-[#F1EFE9]">
           {/* Instagram Logo */}
           <div
             className="inline-flex items-center justify-center text-[#F1EFE9] hover:text-[#C6B48F] transition-colors duration-300 select-none"
