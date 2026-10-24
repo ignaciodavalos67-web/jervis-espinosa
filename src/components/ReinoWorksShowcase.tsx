@@ -129,7 +129,7 @@ export default function ReinoWorksShowcase({
         {bannerTag && (
           <div className="flex items-center gap-4 mb-8 sm:mb-12">
             <span className="w-8 h-[1px] bg-[#C6B48F]" aria-hidden="true" />
-            <span className="font-poppins text-xs uppercase tracking-[0.24em] font-medium text-[#C6B48F]">
+            <span className="font-sans text-xs uppercase tracking-[0.24em] font-medium text-[#C6B48F]">
               {bannerTag}
             </span>
           </div>
@@ -138,7 +138,7 @@ export default function ReinoWorksShowcase({
           {bannerTitle}
         </h1>
         {bannerSubtitle && (
-          <p className="mt-8 font-poppins text-lg sm:text-2xl font-normal text-[#F1EFE9]/70 max-w-3xl leading-relaxed tracking-[-0.01em]">
+          <p className="mt-8 font-serif text-xl sm:text-2xl font-light text-[#F1EFE9]/80 max-w-3xl leading-relaxed tracking-normal">
             {bannerSubtitle}
           </p>
         )}
@@ -185,7 +185,7 @@ export default function ReinoWorksShowcase({
                   {/* Work Title */}
                   <div className="relative z-10 mb-4 sm:mb-6">
                     {item.category && (
-                      <span className="block font-poppins text-xs uppercase tracking-[0.2em] font-medium text-[#C6B48F] mb-3">
+                      <span className="block font-sans text-xs uppercase tracking-[0.2em] font-medium text-[#C6B48F] mb-3">
                         {item.category}
                       </span>
                     )}
@@ -210,7 +210,7 @@ export default function ReinoWorksShowcase({
                   <div className="relative z-10 space-y-4 pt-1">
                     {item.services && item.services.length > 0 && (
                       <ul
-                        className={`reino-work-item-description flex flex-wrap items-center gap-x-4 gap-y-2 font-poppins text-xs sm:text-sm font-normal text-[#F1EFE9]/70 tracking-normal ${
+                        className={`reino-work-item-description flex flex-wrap items-center gap-x-4 gap-y-2 font-serif text-sm sm:text-base font-light text-[#F1EFE9]/85 tracking-wide ${
                           isRightAligned ? "md:justify-end" : "justify-start"
                         }`}
                       >
@@ -232,7 +232,7 @@ export default function ReinoWorksShowcase({
                       <div className={`pt-3 ${isRightAligned ? "md:flex md:justify-end" : ""}`}>
                         <Link
                           href={item.href}
-                          className="inline-flex items-center gap-2 font-poppins text-xs uppercase tracking-[0.18em] font-semibold text-[#C6B48F] hover:text-white transition-colors pb-1 border-b border-[#C6B48F]/40 hover:border-white"
+                          className="inline-flex items-center gap-2 font-sans text-xs uppercase tracking-[0.18em] font-semibold text-[#C6B48F] hover:text-white transition-colors pb-1 border-b border-[#C6B48F]/40 hover:border-white"
                         >
                           <span>Consulta estratégica sobre {item.title}</span>
                           <ArrowUpRight size={14} aria-hidden="true" />

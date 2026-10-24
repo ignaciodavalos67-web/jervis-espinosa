@@ -26,20 +26,20 @@ export default function Footer() {
                 className="object-contain object-left pointer-events-none"
               />
             </div>
-            <p className="font-poppins text-lg text-[#F1EFE9] font-medium">
+            <p className="font-serif text-xl text-[#F1EFE9] italic font-normal">
               “Somos tu equipo, tú nuestra prioridad.”
             </p>
-            <p className="text-xs sm:text-sm text-[#F1EFE9]/60 font-poppins max-w-sm leading-relaxed">
+            <p className="text-xs sm:text-sm text-[#F1EFE9]/60 font-sans max-w-sm leading-relaxed">
               Firma legal ecuatoriana con sede principal en Quito y alcance integral en Guayaquil y las principales plazas comerciales del país.
             </p>
           </div>
 
           {/* Quick Links */}
           <div className="lg:col-span-3 space-y-4">
-            <h4 className="font-poppins text-xs uppercase tracking-[0.2em] text-[#C6B48F] font-semibold">
+            <h4 className="font-sans text-xs uppercase tracking-[0.2em] text-[#C6B48F] font-semibold">
               Navegación
             </h4>
-            <ul className="space-y-2.5 text-xs sm:text-sm font-poppins">
+            <ul className="space-y-2.5 text-xs sm:text-sm font-sans">
               <li>
                 <Link href="/" className="hover:text-white transition-colors">
                   Inicio
@@ -70,10 +70,10 @@ export default function Footer() {
 
           {/* Contact Details */}
           <div className="lg:col-span-4 space-y-4">
-            <h4 className="font-poppins text-xs uppercase tracking-[0.2em] text-[#C6B48F] font-semibold">
+            <h4 className="font-sans text-xs uppercase tracking-[0.2em] text-[#C6B48F] font-semibold">
               Sede & Atención
             </h4>
-            <div className="space-y-2 text-xs sm:text-sm font-poppins text-[#F1EFE9]/70">
+            <div className="space-y-2 text-xs sm:text-sm font-sans text-[#F1EFE9]/70">
               <p>
                 <strong className="text-white font-medium">Quito:</strong> Edificio Torre 6, Piso 8, Av. 6 de Diciembre &amp; Whymper
               </p>
@@ -103,7 +103,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#F1EFE9]/50 font-poppins">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#F1EFE9]/50 font-sans">
           <p>© {new Date().getFullYear()} Jervis &amp; Espinosa Abogados. Todos los derechos reservados.</p>
           <button
             onClick={scrollToTop}

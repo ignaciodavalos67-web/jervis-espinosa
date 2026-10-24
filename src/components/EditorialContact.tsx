@@ -116,7 +116,7 @@ export default function EditorialContact() {
         {/* Minimal Category Tag */}
         <div ref={tagRef} className="flex items-center gap-4 mb-6 sm:mb-8">
           <span className="w-8 h-[1px] bg-[#C6B48F]" aria-hidden="true" />
-          <span className="font-poppins text-xs uppercase tracking-[0.24em] font-medium text-[#C6B48F]">
+          <span className="font-sans text-xs uppercase tracking-[0.24em] font-medium text-[#C6B48F]">
             CONTACTO & ALIANZAS
           </span>
         </div>
@@ -204,10 +204,10 @@ export default function EditorialContact() {
               <Phone size={20} />
             </div>
             <div>
-              <span className="block font-poppins text-[11px] uppercase tracking-[0.18em] text-[#C6B48F] font-semibold mb-1">
+              <span className="block font-sans text-[11px] uppercase tracking-[0.18em] text-[#C6B48F] font-semibold mb-1">
                 Atención Inmediata
               </span>
-              <span className="font-poppins text-lg sm:text-xl font-medium tracking-tight">
+              <span className="font-sans text-lg sm:text-xl font-medium tracking-tight">
                 +593 99 999 9999
               </span>
             </div>
@@ -222,10 +222,10 @@ export default function EditorialContact() {
               <Mail size={20} />
             </div>
             <div>
-              <span className="block font-poppins text-[11px] uppercase tracking-[0.18em] text-[#C6B48F] font-semibold mb-1">
+              <span className="block font-sans text-[11px] uppercase tracking-[0.18em] text-[#C6B48F] font-semibold mb-1">
                 Correo Corporativo
               </span>
-              <span className="font-poppins text-base sm:text-lg font-medium tracking-tight">
+              <span className="font-sans text-base sm:text-lg font-medium tracking-tight">
                 info@jervisespinosa.com
               </span>
             </div>
@@ -237,10 +237,10 @@ export default function EditorialContact() {
               <MapPin size={20} />
             </div>
             <div>
-              <span className="block font-poppins text-[11px] uppercase tracking-[0.18em] text-[#C6B48F] font-semibold mb-1">
+              <span className="block font-sans text-[11px] uppercase tracking-[0.18em] text-[#C6B48F] font-semibold mb-1">
                 Sede Principal
               </span>
-              <span className="font-poppins text-base sm:text-lg font-medium">
+              <span className="font-sans text-base sm:text-lg font-medium">
                 Quito, Ecuador &bull; Cobertura Nacional
               </span>
             </div>

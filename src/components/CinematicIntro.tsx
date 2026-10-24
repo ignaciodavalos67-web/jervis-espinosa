@@ -164,7 +164,7 @@ export default function CinematicIntro({ onComplete }: CinematicIntroProps) {
         className="absolute bottom-8 sm:bottom-12 inset-x-0 z-30 flex flex-col items-center justify-center gap-2 pointer-events-none text-center"
         style={{ opacity: 0 }}
       >
-        <span className="font-poppins text-[11px] uppercase tracking-[0.26em] text-[#F1EFE9]/90 font-medium drop-shadow-md">
+        <span className="font-sans text-[11px] uppercase tracking-[0.26em] text-[#F1EFE9]/90 font-medium drop-shadow-md">
           Desliza para descubrir
         </span>
         <div className="w-[1.5px] h-7 bg-gradient-to-b from-[#C6B48F] via-[#F1EFE9] to-transparent animate-pulse" />

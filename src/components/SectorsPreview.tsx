@@ -24,7 +24,7 @@ export default function SectorsPreview() {
         {/* Category Eyebrow */}
         <div className="flex items-center gap-4 mb-8 sm:mb-10">
           <span className="w-8 h-[1px] bg-[#C6B48F]" aria-hidden="true" />
-          <span className="font-poppins text-xs uppercase tracking-[0.24em] font-medium text-[#101B1C]/70">
+          <span className="font-sans text-xs uppercase tracking-[0.24em] font-medium text-[#101B1C]/70">
             INDUSTRIAS NEURÁLGICAS
           </span>
         </div>
@@ -62,7 +62,7 @@ export default function SectorsPreview() {
                 {[...sectorMarqueeItems, ...sectorMarqueeItems].map((item, idx) => (
                   <span
                     key={idx}
-                    className="font-poppins text-lg sm:text-2xl md:text-3xl font-medium uppercase tracking-tight text-[#101B1C]/85 inline-flex items-center gap-6 sm:gap-10"
+                    className="font-serif text-xl sm:text-2xl md:text-3xl font-light uppercase tracking-wider text-[#101B1C]/90 inline-flex items-center gap-6 sm:gap-10"
                   >
                     <BrandAmpersand className="text-[#C6B48F] shrink-0" />
                     <span>{item}</span>

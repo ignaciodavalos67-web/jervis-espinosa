@@ -27,8 +27,8 @@ const config: Config = {
         },
       },
       fontFamily: {
-        serif: ["Poppins", "var(--font-sans)", "system-ui", "sans-serif"],
-        sans: ["Poppins", "var(--font-sans)", "system-ui", "sans-serif"],
+        serif: ["var(--font-serif)", "Cormorant Garamond", "Georgia", "serif"],
+        sans: ["var(--font-sans)", "Plus Jakarta Sans", "system-ui", "sans-serif"],
         poppins: ["Poppins", "var(--font-sans)", "system-ui", "sans-serif"],
       },
     },

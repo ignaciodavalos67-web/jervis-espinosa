@@ -107,7 +107,7 @@ export default function Navbar({ intro = false }: { intro?: boolean }) {
               <Link
                 key={href}
                 href={href}
-                className="font-poppins text-[11px] lg:text-xs uppercase tracking-[0.16em] font-medium text-[#F1EFE9]/75 hover:text-[#F1EFE9] px-3.5 py-1.5 rounded-full hover:bg-white/5 transition-all duration-200"
+                className="font-sans text-[11px] lg:text-xs uppercase tracking-[0.16em] font-medium text-[#F1EFE9]/75 hover:text-[#F1EFE9] px-3.5 py-1.5 rounded-full hover:bg-white/5 transition-all duration-200"
               >
                 {label}
               </Link>
@@ -118,7 +118,7 @@ export default function Navbar({ intro = false }: { intro?: boolean }) {
           <div className="flex items-center gap-2.5 sm:gap-3 flex-shrink-0">
             <Link
               href="/#contacto"
-              className="font-poppins text-[11px] sm:text-xs uppercase tracking-[0.14em] font-semibold bg-[#F1EFE9] text-[#101B1C] hover:bg-[#C6B48F] transition-all duration-200 py-1.5 sm:py-2 px-3.5 sm:px-5 rounded-full inline-flex items-center gap-1.5 shadow-sm active:scale-95"
+              className="font-sans text-[11px] sm:text-xs uppercase tracking-[0.14em] font-semibold bg-[#F1EFE9] text-[#101B1C] hover:bg-[#C6B48F] transition-all duration-200 py-1.5 sm:py-2 px-3.5 sm:px-5 rounded-full inline-flex items-center gap-1.5 shadow-sm active:scale-95"
             >
               <span>Contacto</span>
               <ArrowUpRight size={13} aria-hidden="true" />
