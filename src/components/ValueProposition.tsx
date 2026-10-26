@@ -41,14 +41,14 @@ export default function ValueProposition() {
     <section
       ref={root}
       id="propuesta-de-valor"
-      className="relative bg-[#F1EFE9] text-[#101B1C] py-28 sm:py-36 md:py-48 px-6 sm:px-12 lg:px-24 overflow-hidden"
+      className="relative bg-[#101B1C] text-[#F1EFE9] py-24 sm:py-32 md:py-40 px-6 sm:px-12 lg:px-24 overflow-hidden border-none"
       aria-labelledby="value-heading"
     >
       <div className="max-w-6xl mx-auto">
         {/* Editorial Section Label */}
         <div className="val-reveal flex items-center gap-4 mb-10 sm:mb-14">
           <span className="w-8 h-[1px] bg-[#C6B48F]" aria-hidden="true" />
-          <span className="font-sans text-xs uppercase tracking-[0.24em] font-medium text-[#101B1C]/70">
+          <span className="font-sans text-xs uppercase tracking-[0.24em] font-medium text-[#C6B48F]">
             PROPUESTA DE VALOR
           </span>
         </div>
@@ -56,35 +56,35 @@ export default function ValueProposition() {
         {/* Oversized Headline in Modern Reino Studio Poppins */}
         <h2
           id="value-heading"
-          className="val-reveal font-poppins text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-[1.06] tracking-[-0.03em] text-[#101B1C] max-w-5xl mb-16 sm:mb-20 text-balance"
+          className="val-reveal font-poppins text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-[1.06] tracking-[-0.03em] text-[#F1EFE9] max-w-5xl mb-16 sm:mb-20 text-balance"
         >
           No solo asesoramos. Construimos relaciones que{" "}
-          <span className="font-light tracking-tight text-[#101B1C]/90">
+          <span className="font-light tracking-tight text-[#F1EFE9]/80">
             impulsan tu crecimiento.
           </span>
         </h2>
 
         {/* Unified Editorial Block: Elegant letterforms */}
-        <div className="val-reveal max-w-4xl space-y-6 sm:space-y-8 mb-20 sm:mb-28">
-          <p className="font-serif text-xl sm:text-2xl md:text-3xl font-light leading-relaxed text-[#101B1C]/90">
+        <div className="val-reveal max-w-4xl space-y-6 sm:space-y-8 mb-20 sm:mb-24">
+          <p className="font-serif text-xl sm:text-2xl md:text-3xl font-light leading-relaxed text-[#F1EFE9]/80">
             Somos un equipo que va más allá de lo tradicional: nos comprometemos con ser incondicionales en nuestro apoyo, creativos en nuestra estrategia y rigurosos en nuestra asesoría.
           </p>
-          <p className="font-serif text-xl sm:text-2xl md:text-3xl font-light leading-relaxed text-[#101B1C]/90">
+          <p className="font-serif text-xl sm:text-2xl md:text-3xl font-light leading-relaxed text-[#F1EFE9]/80">
             Nuestra promesa es ser tu socio estratégico, protegiendo tus intereses con los más altos estándares internacionales mientras te impulsamos y acompañamos en cada etapa de tus negocios en Ecuador.
           </p>
-          <p className="font-serif text-xl sm:text-2xl md:text-3xl font-light leading-relaxed text-[#101B1C]/90">
+          <p className="font-serif text-xl sm:text-2xl md:text-3xl font-light leading-relaxed text-[#F1EFE9]/80">
             Conocemos profundamente el mercado ecuatoriano y prestamos servicios con excelencia técnica en áreas neurálgicas, anticipando contingencias para brindar certezas sólidas en entornos dinámicos.
           </p>
         </div>
 
         {/* Standout Focal Commitment: Elegant signature quote */}
-        <div className="val-reveal relative rounded-3xl bg-[#101B1C] text-[#F1EFE9] p-8 sm:p-14 md:p-20 overflow-hidden shadow-2xl">
+        <div className="val-reveal relative rounded-3xl bg-white/[0.03] border border-white/10 text-[#F1EFE9] p-8 sm:p-14 md:p-20 overflow-hidden shadow-2xl backdrop-blur-sm">
           <div
-            className="absolute -right-12 -bottom-16 w-80 h-80 opacity-[0.06] pointer-events-none select-none"
+            className="absolute -right-12 -bottom-16 w-80 h-80 opacity-[0.05] pointer-events-none select-none"
             style={{
               mask: "url('/assets/ampersand.png') center / contain no-repeat",
               WebkitMask: "url('/assets/ampersand.png') center / contain no-repeat",
-              backgroundColor: "#F1EFE9",
+              backgroundColor: "#C6B48F",
             }}
             aria-hidden="true"
           />
