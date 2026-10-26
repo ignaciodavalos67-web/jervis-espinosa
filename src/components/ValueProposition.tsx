@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -41,10 +42,11 @@ export default function ValueProposition() {
     <section
       ref={root}
       id="propuesta-de-valor"
-      className="relative bg-[#101B1C] text-[#F1EFE9] py-24 sm:py-32 md:py-40 px-6 sm:px-12 lg:px-24 overflow-hidden border-none"
+      className="relative bg-[#101B1C] text-[#F1EFE9] pt-24 sm:pt-32 md:pt-40 pb-0 overflow-hidden border-none"
       aria-labelledby="value-heading"
     >
-      <div className="max-w-6xl mx-auto">
+      {/* Top Editorial Content */}
+      <div className="max-w-6xl mx-auto px-6 sm:px-12 lg:px-24 mb-20 sm:mb-28">
         {/* Editorial Section Label */}
         <div className="val-reveal flex items-center gap-4 mb-10 sm:mb-14">
           <span className="w-8 h-[1px] bg-[#C6B48F]" aria-hidden="true" />
@@ -53,19 +55,19 @@ export default function ValueProposition() {
           </span>
         </div>
 
-        {/* Oversized Headline in Modern Reino Studio Poppins */}
+        {/* Oversized Headline in Elegant Cormorant Garamond with Modern Accent */}
         <h2
           id="value-heading"
-          className="val-reveal font-poppins text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-[1.06] tracking-[-0.03em] text-[#F1EFE9] max-w-5xl mb-16 sm:mb-20 text-balance"
+          className="val-reveal font-serif text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-normal leading-[1.06] tracking-[-0.025em] text-[#F1EFE9] max-w-5xl mb-16 sm:mb-20 text-balance"
         >
           No solo asesoramos. Construimos relaciones que{" "}
-          <span className="font-light tracking-tight text-[#F1EFE9]/80">
+          <span className="font-poppins font-semibold tracking-tight text-[#F1EFE9]">
             impulsan tu crecimiento.
           </span>
         </h2>
 
         {/* Unified Editorial Block: Elegant letterforms */}
-        <div className="val-reveal max-w-4xl space-y-6 sm:space-y-8 mb-20 sm:mb-24">
+        <div className="val-reveal max-w-4xl space-y-6 sm:space-y-8">
           <p className="font-serif text-xl sm:text-2xl md:text-3xl font-light leading-relaxed text-[#F1EFE9]/80">
             Somos un equipo que va más allá de lo tradicional: nos comprometemos con ser incondicionales en nuestro apoyo, creativos en nuestra estrategia y rigurosos en nuestra asesoría.
           </p>
@@ -76,27 +78,37 @@ export default function ValueProposition() {
             Conocemos profundamente el mercado ecuatoriano y prestamos servicios con excelencia técnica en áreas neurálgicas, anticipando contingencias para brindar certezas sólidas en entornos dinámicos.
           </p>
         </div>
+      </div>
 
-        {/* Standout Focal Commitment: Elegant signature quote */}
-        <div className="val-reveal relative rounded-3xl bg-white/[0.03] border border-white/10 text-[#F1EFE9] p-8 sm:p-14 md:p-20 overflow-hidden shadow-2xl backdrop-blur-sm">
-          <div
-            className="absolute -right-12 -bottom-16 w-80 h-80 opacity-[0.05] pointer-events-none select-none"
-            style={{
-              mask: "url('/assets/ampersand.png') center / contain no-repeat",
-              WebkitMask: "url('/assets/ampersand.png') center / contain no-repeat",
-              backgroundColor: "#C6B48F",
-            }}
-            aria-hidden="true"
-          />
-          <div className="relative z-10 max-w-3xl">
-            <div className="flex items-center gap-3 mb-6 sm:mb-8">
-              <span className="w-6 h-[1px] bg-[#C6B48F]" aria-hidden="true" />
-              <span className="font-sans text-[11px] sm:text-xs uppercase tracking-[0.22em] font-semibold text-[#C6B48F]">
+      {/* Full-bleed Quito Image Slogan Banner: No top/bottom fade, compact height cropped top & bottom */}
+      <div className="val-reveal relative w-full h-[300px] sm:h-[360px] md:h-[420px] flex items-center overflow-hidden px-6 sm:px-12 lg:px-24 select-none">
+        {/* Background Image of Quito */}
+        <Image
+          src="/assets/editorial/quito-compromiso.png"
+          alt="Centro Histórico de Quito"
+          fill
+          priority={false}
+          sizes="100vw"
+          className="object-cover object-[center_42%]"
+        />
+
+        {/* Uniform dark filter across the entire image */}
+        <div className="absolute inset-0 bg-[#101B1C]/65 pointer-events-none" />
+
+        {/* Slogan Content aligned with standard page margins */}
+        <div className="max-w-6xl mx-auto w-full relative z-10">
+          <div className="max-w-4xl space-y-4 sm:space-y-6">
+            <div className="flex items-center gap-3 sm:gap-4">
+              <span className="w-8 sm:w-12 h-[1px] bg-[#C6B48F]" aria-hidden="true" />
+              <span className="font-sans text-[11px] sm:text-xs uppercase tracking-[0.24em] font-medium text-[#C6B48F]">
                 NUESTRO COMPROMISO
               </span>
             </div>
-            <blockquote className="font-serif italic font-normal text-3xl sm:text-5xl md:text-6xl lg:text-7xl text-[#F1EFE9] leading-[1.12]">
-              “Somos tu equipo, tú nuestra prioridad.”
+
+            <blockquote className="font-serif font-normal text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#F1EFE9] leading-[1.14] tracking-[-0.02em] text-balance">
+              “Somos tu equipo,
+              <br />
+              tú nuestra prioridad.”
             </blockquote>
           </div>
         </div>

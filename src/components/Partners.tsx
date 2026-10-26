@@ -1,82 +1,147 @@
 "use client";
 
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
-import Image from "next/image";
-import { ArrowUpRight, Mail } from "lucide-react";
-import { gsap } from "gsap";
+import { useState } from "react";
+import { ArrowUpRight, Mail, Plus } from "lucide-react";
 import { partners } from "@/data/partners";
-import PartnerOverview from "./PartnerOverview";
-import "./partners.css";
 
 export default function Partners() {
-  const [selectedId, setSelectedId] = useState(partners[0].id);
-  const currentId = useRef(selectedId);
-  const panel = useRef<HTMLDivElement>(null);
-  const profile = useRef<HTMLElement>(null);
-  const heading = useRef<HTMLHeadingElement>(null);
-  const tween = useRef<gsap.core.Tween | null>(null);
-  const version = useRef(0);
-  const renderedId = useRef(selectedId);
-  const selected = partners.find((partner) => partner.id === selectedId)!;
+  // By default, information is hidden (null) so user clicks a name to reveal it
+  const [expandedId, setExpandedId] = useState<string | null>(null);
 
-  const scrollToProfile = () => {
-    heading.current?.focus({ preventScroll: true });
-    profile.current?.scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth", block: "start" });
-  };
-
-  useLayoutEffect(() => {
-    currentId.current = selectedId;
-    if (renderedId.current === selectedId) return;
-    renderedId.current = selectedId;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      gsap.set(panel.current, { clearProps: "opacity,visibility,transform" });
-    } else {
-      tween.current = gsap.fromTo(panel.current, { autoAlpha: 0, y: 5 }, { autoAlpha: 1, y: 0, duration: 0.18, ease: "power2.out", clearProps: "opacity,visibility,transform" });
-    }
-    scrollToProfile();
-  }, [selectedId]);
-
-  useEffect(() => () => { version.current += 1; tween.current?.kill(); }, []);
-
-  const selectPartner = (id: string) => {
-    const request = ++version.current;
-    tween.current?.kill();
-    if (id === currentId.current) {
-      gsap.set(panel.current, { clearProps: "opacity,visibility,transform" });
-      scrollToProfile();
-      return;
-    }
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) { setSelectedId(id); return; }
-    tween.current = gsap.to(panel.current, { autoAlpha: 0, y: -4, duration: 0.14, ease: "power1.in", onComplete: () => {
-      if (request === version.current) setSelectedId(id);
-    } });
+  const togglePartner = (id: string) => {
+    setExpandedId((prev) => (prev === id ? null : id));
   };
 
   return (
-    <>
-      <PartnerOverview selectedId={selectedId} onSelect={selectPartner} />
-      <section ref={profile} id="perfil-socio" className="partner-profile" aria-labelledby="partner-profile-heading">
-        <div ref={panel} className={`partners-container partner-profile-layout ${selected.portrait ? "" : "without-portrait"}`}>
-          {selected.portrait && <div className="partner-profile-portrait">
-            <Image unoptimized src={selected.portrait.src} alt={selected.name} width={selected.portrait.width} height={selected.portrait.height} sizes="(max-width: 800px) 75vw, 440px" />
-          </div>}
-          <div className="partner-profile-copy">
-            <p className="partner-position">{selected.position}</p>
-            <h2 ref={heading} id="partner-profile-heading" tabIndex={-1}>{selected.name}</h2>
-            {selected.groups.map((group) => (
-              <div key={group.title} className="partner-information">
-                <h3>{group.title}</h3>
-                {group.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
-              </div>
-            ))}
-            <div className="partner-information partner-contact">
-              <h3>Contacto profesional</h3>
-              <a href={`mailto:${selected.email}`}><Mail size={17} aria-hidden="true" />{selected.email}</a>
-              <a href={selected.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn<ArrowUpRight size={17} aria-hidden="true" /><span className="sr-only"> (abre en otra pestaña)</span></a>
-            </div>
-          </div>
+    <div className="relative bg-[#101B1C] text-[#F1EFE9] min-h-screen pt-32 sm:pt-40 md:pt-44 pb-28 sm:pb-36 px-6 sm:px-12 lg:px-24 overflow-hidden">
+      <div className="max-w-5xl mx-auto">
+        {/* Eyebrow Label */}
+        <div className="flex items-center gap-4 mb-8 sm:mb-10">
+          <span className="w-8 h-[1px] bg-[#C6B48F]" aria-hidden="true" />
+          <span className="font-sans text-xs uppercase tracking-[0.24em] font-medium text-[#C6B48F]">
+            LIDERAZGO &amp; TRAYECTORIA
+          </span>
         </div>
-      </section>
-    </>
+
+        {/* Section Headline matching Propuesta de Valor */}
+        <h1 className="font-serif text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-normal leading-[1.06] tracking-[-0.025em] text-[#F1EFE9] max-w-4xl mb-6 sm:mb-8 text-balance">
+          Las personas detrás de{" "}
+          <span className="font-poppins font-semibold text-[#F1EFE9]">
+            nuestra firma.
+          </span>
+        </h1>
+
+        {/* Subtitle */}
+        <p className="font-serif text-xl sm:text-2xl md:text-3xl font-light leading-relaxed text-[#F1EFE9]/80 max-w-3xl mb-16 sm:mb-20">
+          Experiencia, visión estratégica y compromiso incondicional al servicio de nuestros clientes en Ecuador.
+        </p>
+
+        {/* Partners Accordion List - Names only by default, click to reveal details */}
+        <div className="space-y-12 sm:space-y-16">
+          {partners.map((partner) => {
+            const isExpanded = expandedId === partner.id;
+
+            return (
+              <article key={partner.id} className="scroll-mt-32">
+                {/* Clickable Partner Header */}
+                <button
+                  type="button"
+                  onClick={() => togglePartner(partner.id)}
+                  aria-expanded={isExpanded}
+                  aria-controls={`partner-info-${partner.id}`}
+                  className="w-full text-left group cursor-pointer focus:outline-none focus-visible:ring-1 focus-visible:ring-[#C6B48F]"
+                >
+                  <div className="flex items-center justify-between gap-6">
+                    <div>
+                      <div className="flex items-center gap-3 mb-3">
+                        <span className="w-6 h-[1px] bg-[#C6B48F]" aria-hidden="true" />
+                        <span className="font-sans text-[11px] sm:text-xs uppercase tracking-[0.22em] font-semibold text-[#C6B48F]">
+                          {partner.position}
+                        </span>
+                      </div>
+                      <h2 className="font-serif text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-normal text-[#F1EFE9] group-hover:text-[#C6B48F] transition-colors duration-300 leading-[1.08] tracking-[-0.02em]">
+                        {partner.name}
+                      </h2>
+                    </div>
+
+                    {/* Subtle toggle indicator */}
+                    <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center text-[#C6B48F]">
+                      <Plus
+                        size={28}
+                        className={`transition-transform duration-300 ease-out ${
+                          isExpanded ? "rotate-45" : "rotate-0 group-hover:scale-110"
+                        }`}
+                        aria-hidden="true"
+                      />
+                    </div>
+                  </div>
+                </button>
+
+                {/* Collapsible Partner Information (Hidden by default) */}
+                <div
+                  id={`partner-info-${partner.id}`}
+                  className={`grid transition-all duration-500 ease-in-out ${
+                    isExpanded ? "grid-rows-[1fr] opacity-100 mt-10 sm:mt-12" : "grid-rows-[0fr] opacity-0 mt-0 pointer-events-none"
+                  }`}
+                >
+                  <div className="overflow-hidden space-y-10 sm:space-y-12">
+                    {/* Biographical & Professional Details */}
+                    <div className="space-y-10 sm:space-y-12">
+                      {partner.groups.map((group, gIdx) => (
+                        <div key={group.title || gIdx} className="space-y-4">
+                          <h3 className="font-sans text-xs uppercase tracking-[0.22em] font-medium text-[#C6B48F]">
+                            {group.title}
+                          </h3>
+                          <div className="space-y-5">
+                            {group.paragraphs.map((paragraph, pIdx) => (
+                              <p
+                                key={pIdx}
+                                className="font-serif text-lg sm:text-xl md:text-2xl font-light leading-relaxed text-[#F1EFE9]/85 max-w-4xl"
+                              >
+                                {paragraph}
+                              </p>
+                            ))}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Direct Professional Contact */}
+                    <div className="space-y-4 pt-2">
+                      <h3 className="font-sans text-xs uppercase tracking-[0.22em] font-medium text-[#C6B48F]">
+                        Contacto Directo
+                      </h3>
+                      <div className="flex flex-wrap items-center gap-x-8 gap-y-4">
+                        <a
+                          href={`mailto:${partner.email}`}
+                          className="inline-flex items-center gap-2.5 text-sm sm:text-base text-[#F1EFE9]/90 hover:text-[#C6B48F] transition-colors group/link"
+                        >
+                          <Mail size={16} className="text-[#C6B48F] group-hover/link:scale-110 transition-transform" aria-hidden="true" />
+                          <span>
+                            {partner.email}
+                          </span>
+                        </a>
+                        <a
+                          href={partner.linkedin}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 text-sm sm:text-base text-[#F1EFE9]/90 hover:text-[#C6B48F] transition-colors group/link"
+                        >
+                          <span>
+                            Perfil de LinkedIn
+                          </span>
+                          <ArrowUpRight size={14} className="text-[#C6B48F] group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" aria-hidden="true" />
+                          <span className="sr-only"> (abre en una pestaña nueva)</span>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            );
+          })}
+        </div>
+      </div>
+    </div>
   );
 }

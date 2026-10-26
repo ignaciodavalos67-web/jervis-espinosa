@@ -18,7 +18,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 pb-14 border-b border-white/10">
           {/* Brand info */}
           <div className="lg:col-span-5 space-y-5">
-            <div className="relative w-44 h-12">
+            <div className="relative w-64 sm:w-72 md:w-80 h-20 sm:h-24 mb-2">
               <Image
                 src="/assets/logo-white.png"
                 alt="Jervis & Espinosa Abogados"
@@ -46,7 +46,7 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/area_de_practica" className="hover:text-white transition-colors">
+                <Link href="/#areas-de-practica" className="hover:text-white transition-colors">
                   Áreas de Práctica
                 </Link>
               </li>

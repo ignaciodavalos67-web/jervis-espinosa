@@ -2,14 +2,12 @@
 
 import { useEffect, useRef } from "react";
 import Image from "next/image";
-import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export interface ReinoWorkItem {
   id: string;
-  serial: string;
+  serial?: string;
   title: string;
   description: string;
   image: string;
@@ -144,9 +142,9 @@ export default function ReinoWorksShowcase({
         )}
       </section>
 
-      {/* Works List (Exact Reino Studio asymmetric rhythm & parallax numbers) */}
-      <section className="pb-32 sm:pb-48 px-6 sm:px-12 lg:px-24 max-w-7xl mx-auto">
-        <div className="space-y-36 sm:space-y-48 md:space-y-64">
+      {/* Works List (Asymmetric rhythm without numbering) */}
+      <section className="pb-28 sm:pb-36 px-6 sm:px-12 lg:px-24 max-w-7xl mx-auto">
+        <div className="space-y-20 sm:space-y-28 md:space-y-36">
           {items.map((item, index) => {
             const rhythm = (index % 4) + 1; // 1, 2, 3, 4
             const isRightAligned = rhythm === 2 || rhythm === 4;
@@ -172,16 +170,6 @@ export default function ReinoWorksShowcase({
                 className={`reino-work-item relative w-full ${widthClass}`}
               >
                 <div className={`relative w-full ${isRightAligned ? "md:text-right" : "text-left"}`}>
-                  {/* Huge Serial Parallax Number sitting behind media */}
-                  <div
-                    aria-hidden="true"
-                    className={`reino-work-item-serial absolute top-[-5rem] sm:top-[-8rem] font-poppins text-[7rem] sm:text-[11rem] md:text-[14rem] lg:text-[16rem] font-bold text-[#F1EFE9]/[0.08] leading-none select-none pointer-events-none z-0 ${
-                      isRightAligned ? "left-[-2rem] sm:left-[-6rem]" : "right-[-2rem] sm:right-[-6rem]"
-                    }`}
-                  >
-                    {item.serial}
-                  </div>
-
                   {/* Work Title */}
                   <div className="relative z-10 mb-4 sm:mb-6">
                     {item.category && (
@@ -189,7 +177,7 @@ export default function ReinoWorksShowcase({
                         {item.category}
                       </span>
                     )}
-                    <h2 className="reino-work-item-title font-poppins text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-[-0.025em] text-[#F1EFE9] leading-[1.12]">
+                    <h2 className="reino-work-item-title font-serif text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-normal tracking-[-0.02em] text-[#F1EFE9] leading-[1.08]">
                       {item.title}
                     </h2>
                   </div>
@@ -207,7 +195,7 @@ export default function ReinoWorksShowcase({
                   </div>
 
                   {/* Work Services as Clean Text Below Media (Subtle, refined small bullets) */}
-                  <div className="relative z-10 space-y-4 pt-1">
+                  <div className="relative z-10 pt-1">
                     {item.services && item.services.length > 0 && (
                       <ul
                         className={`reino-work-item-description flex flex-wrap items-center gap-x-4 gap-y-2 font-serif text-sm sm:text-base font-light text-[#F1EFE9]/85 tracking-wide ${
@@ -226,18 +214,6 @@ export default function ReinoWorksShowcase({
                           </li>
                         ))}
                       </ul>
-                    )}
-
-                    {item.href && (
-                      <div className={`pt-3 ${isRightAligned ? "md:flex md:justify-end" : ""}`}>
-                        <Link
-                          href={item.href}
-                          className="inline-flex items-center gap-2 font-sans text-xs uppercase tracking-[0.18em] font-semibold text-[#C6B48F] hover:text-white transition-colors pb-1 border-b border-[#C6B48F]/40 hover:border-white"
-                        >
-                          <span>Consulta estratégica sobre {item.title}</span>
-                          <ArrowUpRight size={14} aria-hidden="true" />
-                        </Link>
-                      </div>
                     )}
                   </div>
                 </div>

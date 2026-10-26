@@ -1,7 +1,7 @@
 import CinematicIntro from "@/components/CinematicIntro";
 import Navbar from "@/components/Navbar";
 import ValueProposition from "@/components/ValueProposition";
-import PracticeAreasPreview from "@/components/PracticeAreasPreview";
+import PracticeAreasSection from "@/components/PracticeAreasSection";
 import SectorsPreview from "@/components/SectorsPreview";
 import EditorialContact from "@/components/EditorialContact";
 import Footer from "@/components/Footer";
@@ -22,7 +22,7 @@ export default function Home() {
           <ValueProposition />
 
           {/* 3. Áreas de Práctica (Dark Night Green, 50/50 layout, no arrows, no numbers) */}
-          <PracticeAreasPreview />
+          <PracticeAreasSection />
 
           {/* 4. Sectores (Warm Ivory, photographic asymmetrical editorial) */}
           <SectorsPreview />

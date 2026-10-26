@@ -131,8 +131,12 @@ export default function CinematicIntro({ onComplete }: CinematicIntroProps) {
           preload="auto"
           className="w-full h-full object-cover select-none pointer-events-none"
         />
-        {/* Subtle cinematic gradient for perfect contrast */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#101B1C]/40 via-transparent to-[#101B1C]/60 pointer-events-none" />
+        {/* Overall dark petrol green tone to harmonize footage with firm palette */}
+        <div className="absolute inset-0 bg-[#101B1C]/50 mix-blend-multiply pointer-events-none" />
+        <div className="absolute inset-0 bg-[#132A2B]/25 mix-blend-color pointer-events-none" />
+
+        {/* Seamless cinematic gradient: dissolves smoothly into solid #101B1C at the bottom */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#101B1C]/55 via-[#101B1C]/25 via-50% to-[#101B1C] pointer-events-none" />
       </div>
 
       {/* 

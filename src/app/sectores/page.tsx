@@ -11,7 +11,6 @@ export const metadata: Metadata = {
 const sectorWorksItems: ReinoWorkItem[] = [
   {
     id: "telecomunicaciones",
-    serial: "01",
     title: "TELECOMUNICACIONES",
     category: "Conectividad & Infraestructura Digital",
     description:
@@ -28,7 +27,6 @@ const sectorWorksItems: ReinoWorkItem[] = [
   },
   {
     id: "tecnologias-financieras",
-    serial: "02",
     title: "TECNOLOGÍAS FINANCIERAS",
     category: "Fintech, Pagos & Capital de Riesgo",
     description:
@@ -45,7 +43,6 @@ const sectorWorksItems: ReinoWorkItem[] = [
   },
   {
     id: "energia-y-recursos-naturales",
-    serial: "03",
     title: "ENERGÍA & RECURSOS NATURALES",
     category: "Energías Renovables & Infraestructura",
     description:
@@ -62,7 +59,6 @@ const sectorWorksItems: ReinoWorkItem[] = [
   },
   {
     id: "inmobiliario-y-construccion",
-    serial: "04",
     title: "INMOBILIARIO & CONSTRUCCIÓN",
     category: "Desarrollo Urbano & Fideicomisos",
     description:

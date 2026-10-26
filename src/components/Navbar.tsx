@@ -7,7 +7,7 @@ import { ArrowUpRight, X, Menu } from "lucide-react";
 
 const destinations = [
   ["/", "Inicio"],
-  ["/area_de_practica", "Áreas de Práctica"],
+  ["/#areas-de-practica", "Áreas de Práctica"],
   ["/sectores", "Sectores"],
   ["/socios", "Socios"],
   ["/#contacto", "Contacto"],

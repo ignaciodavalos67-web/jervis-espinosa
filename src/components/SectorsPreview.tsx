@@ -25,7 +25,7 @@ export default function SectorsPreview() {
         <div className="flex items-center gap-4 mb-8 sm:mb-10">
           <span className="w-8 h-[1px] bg-[#C6B48F]" aria-hidden="true" />
           <span className="font-sans text-xs uppercase tracking-[0.24em] font-medium text-[#101B1C]/70">
-            INDUSTRIAS NEURÁLGICAS
+            INDUSTRIAS
           </span>
         </div>
 

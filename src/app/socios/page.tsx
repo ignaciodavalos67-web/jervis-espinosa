@@ -10,7 +10,7 @@ export default function PartnersPage() {
     <>
       <a className="skip-link" href="#contenido-principal">Saltar al contenido</a>
       <Navbar />
-      <main id="contenido-principal" className="partners-page" tabIndex={-1}><Partners /></main>
+      <main id="contenido-principal" className="bg-[#101B1C]" tabIndex={-1}><Partners /></main>
       <Footer />
     </>
   );
