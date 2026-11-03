@@ -80,20 +80,21 @@ export default function ValueProposition() {
         </div>
       </div>
 
-      {/* Full-bleed Quito Image Slogan Banner: No top/bottom fade, compact height cropped top & bottom */}
-      <div className="val-reveal relative w-full h-[300px] sm:h-[360px] md:h-[420px] flex items-center overflow-hidden px-6 sm:px-12 lg:px-24 select-none">
-        {/* Background Image of Quito */}
+      {/* Full-bleed Guayaquil Image Slogan Banner: No top/bottom fade, compact height cropped top & bottom */}
+      <div className="val-reveal relative w-full h-[320px] sm:h-[380px] md:h-[440px] flex items-center overflow-hidden px-6 sm:px-12 lg:px-24 select-none">
+        {/* Background Image of Cerro Santa Ana, Guayaquil in ultra high resolution */}
         <Image
-          src="/assets/editorial/quito-compromiso.png"
-          alt="Centro Histórico de Quito"
+          src="/assets/editorial/compromiso-guayaquil.jpg"
+          alt="Cerro Santa Ana, Guayaquil"
           fill
           priority={false}
+          quality={95}
           sizes="100vw"
-          className="object-cover object-[center_42%]"
+          className="object-cover object-[center_48%]"
         />
 
         {/* Uniform dark filter across the entire image */}
-        <div className="absolute inset-0 bg-[#101B1C]/65 pointer-events-none" />
+        <div className="absolute inset-0 bg-[#101B1C]/60 pointer-events-none" />
 
         {/* Slogan Content aligned with standard page margins */}
         <div className="max-w-6xl mx-auto w-full relative z-10">
