@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import Image from "next/image";
 import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 interface CinematicIntroProps {
   onComplete?: () => void;
@@ -11,11 +12,13 @@ interface CinematicIntroProps {
 export default function CinematicIntro({ onComplete }: CinematicIntroProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
-  const logoRef = useRef<HTMLDivElement>(null);
-  const scrollInviteRef = useRef<HTMLDivElement>(null);
+  const logoScrollRef = useRef<HTMLDivElement>(null);
+  const logoRevealRef = useRef<HTMLDivElement>(null);
   const timelineRef = useRef<gsap.core.Timeline | null>(null);
 
   useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
     // Start background video playback immediately
     if (videoRef.current) {
       videoRef.current.play().catch(() => {});
@@ -25,21 +28,17 @@ export default function CinematicIntro({ onComplete }: CinematicIntroProps) {
 
     // Reduced motion fallback: show video and logo immediately
     if (prefersReducedMotion) {
-      if (logoRef.current) {
-        logoRef.current.style.opacity = "1";
-        logoRef.current.style.transform = "none";
-      }
-      if (scrollInviteRef.current) {
-        scrollInviteRef.current.style.opacity = "1";
+      if (logoRevealRef.current) {
+        logoRevealRef.current.style.opacity = "1";
+        logoRevealRef.current.style.transform = "none";
       }
       window.dispatchEvent(new CustomEvent("intro-revealed"));
       onComplete?.();
       return;
     }
 
-    // Set initial logo and scroll invite states
-    gsap.set(logoRef.current, { opacity: 0, scale: 0.94, y: 10 });
-    gsap.set(scrollInviteRef.current, { opacity: 0, y: 8 });
+    // Set initial logo reveal state
+    gsap.set(logoRevealRef.current, { opacity: 0, scale: 0.94, y: 10 });
 
     // Master Timeline: Pure cinematic video with a very slow, majestic logo reveal
     const tl = gsap.timeline({
@@ -55,7 +54,7 @@ export default function CinematicIntro({ onComplete }: CinematicIntroProps) {
 
     // 2. Slow, majestic appearance of the full Jervis & Espinosa logo in the center (3.2 seconds duration)
     tl.to(
-      logoRef.current,
+      logoRevealRef.current,
       {
         opacity: 1,
         scale: 1,
@@ -66,21 +65,33 @@ export default function CinematicIntro({ onComplete }: CinematicIntroProps) {
       0.8
     );
 
-    // 3. Reveal scroll invitation smoothly
-    tl.to(
-      scrollInviteRef.current,
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1.2,
-        ease: "power2.out",
-      },
-      3.4
-    );
-
     tl.add(() => {
       window.dispatchEvent(new CustomEvent("intro-revealed"));
     }, 3.6);
+
+    // Scroll-driven logo motion (Lenz & Staehelin style):
+    // As the user scrolls down, the logo glides upwards towards the top of the screen
+    const scrollAnimation = gsap.to(logoScrollRef.current, {
+      y: -280,
+      opacity: 0,
+      ease: "power1.out",
+    });
+
+    const scrollTrigger = ScrollTrigger.create({
+      trigger: containerRef.current,
+      start: "top top",
+      end: "+=95%",
+      scrub: 0.3,
+      animation: scrollAnimation,
+    });
+
+    // Pause video when completely scrolled out of view to save GPU resources
+    const pauseTrigger = ScrollTrigger.create({
+      trigger: containerRef.current,
+      start: "bottom top",
+      onEnter: () => videoRef.current?.pause(),
+      onLeaveBack: () => videoRef.current?.play().catch(() => {}),
+    });
 
     // Allow user scroll, wheel, touch or click to bypass intro immediately
     const handleEarlyBypass = () => {
@@ -98,6 +109,9 @@ export default function CinematicIntro({ onComplete }: CinematicIntroProps) {
       window.removeEventListener("scroll", handleEarlyBypass);
       window.removeEventListener("wheel", handleEarlyBypass);
       window.removeEventListener("touchmove", handleEarlyBypass);
+      scrollTrigger.kill();
+      pauseTrigger.kill();
+      scrollAnimation.kill();
       tl.kill();
     };
   }, [onComplete]);
@@ -113,12 +127,12 @@ export default function CinematicIntro({ onComplete }: CinematicIntroProps) {
     <section
       ref={containerRef}
       onClick={handleSkipClick}
-      className="relative w-full h-[100svh] min-h-[640px] bg-[#101B1C] overflow-hidden select-none cursor-pointer"
+      className="sticky top-0 w-full h-[100svh] min-h-[640px] bg-[#202324] overflow-hidden select-none cursor-pointer z-0"
       aria-label="Presentación cinematográfica de Jervis & Espinosa"
     >
       {/* 
         Full Viewport Quito Aerial Footage:
-        Plays directly full-screen with natural colors, zero ampersand mask.
+        Stays completely static at top:0 while content slides up over it.
       */}
       <div className="absolute inset-0 z-10 w-full h-full pointer-events-none overflow-hidden">
         <video
@@ -131,24 +145,26 @@ export default function CinematicIntro({ onComplete }: CinematicIntroProps) {
           preload="auto"
           className="w-full h-full object-cover select-none pointer-events-none"
         />
-        {/* Overall dark petrol green tone to harmonize footage with firm palette */}
-        <div className="absolute inset-0 bg-[#101B1C]/50 mix-blend-multiply pointer-events-none" />
-        <div className="absolute inset-0 bg-[#132A2B]/25 mix-blend-color pointer-events-none" />
+        {/* Subtle dark graphite grey tone to harmonize footage with firm palette */}
+        <div className="absolute inset-0 bg-[#202324]/40 mix-blend-multiply pointer-events-none" />
 
-        {/* Seamless cinematic gradient: dissolves smoothly into solid #101B1C at the bottom */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#101B1C]/55 via-[#101B1C]/25 via-50% to-[#101B1C] pointer-events-none" />
+        {/* Clean cinematic gradient: keeps footage crisp and visible right to bottom */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#202324]/50 via-transparent to-[#202324]/35 pointer-events-none" />
       </div>
 
       {/* 
         Full Jervis & Espinosa Logo: 
-        Fades in very slowly and majestically in the center of the screen.
+        Fades in majestically in the center and moves upwards when the user scrolls down.
       */}
       <div
-        ref={logoRef}
-        className="absolute inset-0 z-30 flex items-center justify-center pointer-events-none px-6"
-        style={{ opacity: 0 }}
+        ref={logoScrollRef}
+        className="absolute inset-0 z-30 flex items-center justify-center pointer-events-none px-6 will-change-transform"
       >
-        <div className="relative w-[280px] sm:w-[380px] md:w-[460px] aspect-[1884/1418] drop-shadow-2xl">
+        <div
+          ref={logoRevealRef}
+          className="relative w-[280px] sm:w-[380px] md:w-[460px] aspect-[1884/1418] drop-shadow-2xl"
+          style={{ opacity: 0 }}
+        >
           <Image
             src="/assets/logo-white.png"
             alt="Jervis & Espinosa Abogados"
@@ -157,21 +173,6 @@ export default function CinematicIntro({ onComplete }: CinematicIntroProps) {
             className="object-contain pointer-events-none"
           />
         </div>
-      </div>
-
-      {/* 
-        Scroll Invitation:
-        Fades in gently at the bottom.
-      */}
-      <div
-        ref={scrollInviteRef}
-        className="absolute bottom-8 sm:bottom-12 inset-x-0 z-30 flex flex-col items-center justify-center gap-2 pointer-events-none text-center"
-        style={{ opacity: 0 }}
-      >
-        <span className="font-sans text-[11px] uppercase tracking-[0.26em] text-[#F1EFE9]/90 font-medium drop-shadow-md">
-          Desliza para descubrir
-        </span>
-        <div className="w-[1.5px] h-7 bg-gradient-to-b from-[#C6B48F] via-[#F1EFE9] to-transparent animate-pulse" />
       </div>
     </section>
   );

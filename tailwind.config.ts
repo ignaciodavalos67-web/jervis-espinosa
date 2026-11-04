@@ -25,6 +25,11 @@ const config: Config = {
           light: "#D8CBB0",
           dark: "#B4A076",
         },
+        beige: {
+          DEFAULT: "#D8CEBC",
+          light: "#E5DDCF",
+          dark: "#C5B9A4",
+        },
       },
       fontFamily: {
         serif: ["var(--font-serif)", "Cormorant Garamond", "Georgia", "serif"],

@@ -17,6 +17,111 @@
   will-change: transform;
 }
 
+@keyframes marquee-right {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.animate-marquee-right {
+  animation: marquee-right 65s linear infinite;
+  will-change: transform;
+}
+
+/* Architectural Geometry Animations for Qué Hacemos (Calm, slow & luxurious) */
+@keyframes jye-circle-1 {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  50% {
+    transform: translate(20px, -10px) scale(1.02);
+  }
+}
+
+@keyframes jye-circle-2 {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  50% {
+    transform: translate(-22px, 12px) scale(0.98);
+  }
+}
+
+@keyframes jye-diagonal-1 {
+  0%, 100% {
+    transform: translate(0px, 0px);
+  }
+  50% {
+    transform: translate(24px, -12px);
+  }
+}
+
+@keyframes jye-diagonal-2 {
+  0%, 100% {
+    transform: translate(0px, 0px);
+  }
+  50% {
+    transform: translate(-22px, 14px);
+  }
+}
+
+@keyframes jye-arc-1 {
+  0%, 100% {
+    transform: translate(0px, 0px) rotate(0deg);
+  }
+  50% {
+    transform: translate(18px, -8px) rotate(2.5deg);
+  }
+}
+
+@keyframes jye-arc-2 {
+  0%, 100% {
+    transform: translate(0px, 0px) rotate(0deg);
+  }
+  50% {
+    transform: translate(-20px, 10px) rotate(-2.5deg);
+  }
+}
+
+.anim-jye-circle-1 {
+  animation: jye-circle-1 15s ease-in-out infinite;
+  transform-origin: center center;
+  will-change: transform;
+}
+
+.anim-jye-circle-2 {
+  animation: jye-circle-2 19s ease-in-out infinite;
+  transform-origin: center center;
+  will-change: transform;
+}
+
+.anim-jye-diagonal-1 {
+  animation: jye-diagonal-1 16s ease-in-out infinite;
+  transform-origin: center center;
+  will-change: transform;
+}
+
+.anim-jye-diagonal-2 {
+  animation: jye-diagonal-2 20s ease-in-out infinite;
+  transform-origin: center center;
+  will-change: transform;
+}
+
+.anim-jye-arc-1 {
+  animation: jye-arc-1 17s ease-in-out infinite;
+  transform-origin: center center;
+  will-change: transform;
+}
+
+.anim-jye-arc-2 {
+  animation: jye-arc-2 21s ease-in-out infinite;
+  transform-origin: center center;
+  will-change: transform;
+}
+
 :root {
   --background: #101B1C;
   --foreground: #F1EFE9;

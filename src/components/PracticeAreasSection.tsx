@@ -207,6 +207,9 @@ export default function PracticeAreasSection() {
                       className="practice-work-image object-cover transition-transform duration-700 ease-out hover:scale-105"
                       priority={index === 0}
                     />
+                    {/* Light green tint filter */}
+                    <div className="absolute inset-0 bg-[#101B1C]/25 mix-blend-multiply pointer-events-none z-10" />
+                    <div className="absolute inset-0 bg-[#143234]/20 mix-blend-color pointer-events-none z-10" />
                   </div>
 
                   {/* Work Services as Clean Text Below Media */}

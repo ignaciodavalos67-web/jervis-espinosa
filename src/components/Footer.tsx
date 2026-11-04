@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { ArrowUp } from "lucide-react";
 
 export default function Footer() {
@@ -13,77 +12,38 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-[#101B1C] text-[#F1EFE9]/80 pt-10 sm:pt-12 pb-12 px-6 sm:px-12 lg:px-24 border-t border-white/10">
+    <footer className="bg-[#202324] text-[#F1EFE9]/80 pt-16 sm:pt-20 md:pt-24 pb-12 sm:pb-16 px-6 sm:px-12 lg:px-24 border-t border-white/10">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 pb-14 border-b border-white/10">
-          {/* Brand info */}
-          <div className="lg:col-span-5 space-y-5">
-            <div className="relative w-64 sm:w-72 md:w-80 h-20 sm:h-24 mb-2">
+        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-12 lg:gap-16 pb-16 sm:pb-20 border-b border-white/10">
+          {/* Logo Jervis & Espinosa en formato monumental */}
+          <div className="w-full lg:max-w-2xl xl:max-w-3xl">
+            <div className="relative w-80 sm:w-[480px] md:w-[600px] lg:w-[720px] xl:w-[820px] h-28 sm:h-40 md:h-52 lg:h-64">
               <Image
                 src="/assets/logo-white.png"
                 alt="Jervis & Espinosa Abogados"
                 fill
+                priority
                 className="object-contain object-left pointer-events-none"
               />
             </div>
-            <p className="font-serif text-xl text-[#F1EFE9] italic font-normal">
-              “Somos tu equipo, tú nuestra prioridad.”
-            </p>
-            <p className="text-xs sm:text-sm text-[#F1EFE9]/60 font-sans max-w-sm leading-relaxed">
-              Firma legal ecuatoriana con sede principal en Quito y alcance integral en Guayaquil y las principales plazas comerciales del país.
-            </p>
           </div>
 
-          {/* Quick Links */}
-          <div className="lg:col-span-3 space-y-4">
-            <h4 className="font-sans text-xs uppercase tracking-[0.2em] text-[#C6B48F] font-semibold">
-              Navegación
-            </h4>
-            <ul className="space-y-2.5 text-xs sm:text-sm font-sans">
-              <li>
-                <Link href="/" className="hover:text-white transition-colors">
-                  Inicio
-                </Link>
-              </li>
-              <li>
-                <Link href="/#areas-de-practica" className="hover:text-white transition-colors">
-                  Áreas de Práctica
-                </Link>
-              </li>
-              <li>
-                <Link href="/sectores" className="hover:text-white transition-colors">
-                  Sectores
-                </Link>
-              </li>
-              <li>
-                <Link href="/socios" className="hover:text-white transition-colors">
-                  Socios
-                </Link>
-              </li>
-              <li>
-                <Link href="/#contacto" className="hover:text-white transition-colors">
-                  Contacto
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Contact Details */}
-          <div className="lg:col-span-4 space-y-4">
-            <h4 className="font-sans text-xs uppercase tracking-[0.2em] text-[#C6B48F] font-semibold">
+          {/* Sede & Atención */}
+          <div className="space-y-4 max-w-md">
+            <h4 className="font-sans text-xs uppercase tracking-[0.24em] text-[#C6B48F] font-semibold">
               Sede & Atención
             </h4>
-            <div className="space-y-2 text-xs sm:text-sm font-sans text-[#F1EFE9]/70">
+            <div className="space-y-2.5 text-sm sm:text-base font-sans text-[#F1EFE9]/75">
               <p>
                 <strong className="text-white font-medium">Quito:</strong> Edificio Torre 6, Piso 8, Av. 6 de Diciembre &amp; Whymper
               </p>
               <p>
                 <strong className="text-white font-medium">Guayaquil:</strong> Cobertura corporativa
               </p>
-              <p className="pt-2">
+              <p className="pt-1">
                 <a
                   href="mailto:info@jervisespinosa.com"
-                  className="hover:text-white transition-colors underline underline-offset-4"
+                  className="hover:text-white transition-colors underline underline-offset-4 decoration-[#C6B48F]/50 hover:decoration-[#C6B48F]"
                 >
                   info@jervisespinosa.com
                 </a>
@@ -93,7 +53,7 @@ export default function Footer() {
                   href="https://wa.me/593999999999"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-white transition-colors"
+                  className="hover:text-[#C6B48F] transition-colors"
                 >
                   WhatsApp: +593 99 999 9999
                 </a>

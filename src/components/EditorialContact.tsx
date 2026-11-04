@@ -115,6 +115,7 @@ export default function EditorialContact() {
       <div className="max-w-7xl mx-auto">
         {/* Minimal Category Tag */}
         <div ref={tagRef} className="flex items-center gap-4 mb-6 sm:mb-8">
+          <span className="font-mono text-xs text-[#C6B48F]/70 tracking-[0.2em]">05</span>
           <span className="w-8 h-[1px] bg-[#C6B48F]" aria-hidden="true" />
           <span className="font-sans text-xs uppercase tracking-[0.24em] font-medium text-[#C6B48F]">
             CONTACTO & ALIANZAS

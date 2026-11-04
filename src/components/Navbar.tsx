@@ -7,8 +7,6 @@ import { ArrowUpRight, X, Menu } from "lucide-react";
 
 const destinations = [
   ["/", "Inicio"],
-  ["/#areas-de-practica", "Áreas de Práctica"],
-  ["/sectores", "Sectores"],
   ["/socios", "Socios"],
   ["/#contacto", "Contacto"],
 ];
@@ -76,7 +74,7 @@ export default function Navbar({ intro = false }: { intro?: boolean }) {
       {/* Floating Zipline-Style Rounded Capsule Navbar */}
       <div className="fixed top-4 sm:top-6 left-0 right-0 z-50 flex justify-center pointer-events-none px-4 sm:px-6">
         <header
-          className={`pointer-events-auto transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] flex items-center justify-between gap-3 sm:gap-6 px-4 sm:px-7 py-2.5 sm:py-3 rounded-full bg-[#101B1C]/85 backdrop-blur-xl border border-[#F1EFE9]/15 shadow-[0_12px_40px_rgba(0,0,0,0.45)] w-full max-w-4xl lg:max-w-5xl ${
+          className={`pointer-events-auto transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] flex items-center justify-between gap-3 sm:gap-6 px-4 sm:px-7 py-2.5 sm:py-3 rounded-full bg-[#202324]/85 backdrop-blur-xl border border-[#F1EFE9]/15 shadow-[0_12px_40px_rgba(0,0,0,0.45)] w-full max-w-4xl lg:max-w-5xl ${
             isVisible
               ? "translate-y-0 opacity-100 scale-100"
               : "-translate-y-24 opacity-0 scale-95 pointer-events-none"
@@ -118,7 +116,7 @@ export default function Navbar({ intro = false }: { intro?: boolean }) {
           <div className="flex items-center gap-2.5 sm:gap-3 flex-shrink-0">
             <Link
               href="/#contacto"
-              className="font-sans text-[11px] sm:text-xs uppercase tracking-[0.14em] font-semibold bg-[#F1EFE9] text-[#101B1C] hover:bg-[#C6B48F] transition-all duration-200 py-1.5 sm:py-2 px-3.5 sm:px-5 rounded-full inline-flex items-center gap-1.5 shadow-sm active:scale-95"
+              className="font-sans text-[11px] sm:text-xs uppercase tracking-[0.14em] font-semibold bg-[#F1EFE9] text-[#202324] hover:bg-[#C6B48F] transition-all duration-200 py-1.5 sm:py-2 px-3.5 sm:px-5 rounded-full inline-flex items-center gap-1.5 shadow-sm active:scale-95"
             >
               <span>Contacto</span>
               <ArrowUpRight size={13} aria-hidden="true" />
@@ -142,7 +140,7 @@ export default function Navbar({ intro = false }: { intro?: boolean }) {
       <dialog
         ref={dialog}
         id="main-menu"
-        className="menu-dialog fixed inset-0 z-50 bg-[#101B1C] text-[#F1EFE9] w-full h-full max-w-full max-h-full m-0 p-0"
+        className="menu-dialog fixed inset-0 z-50 bg-[#202324] text-[#F1EFE9] w-full h-full max-w-full max-h-full m-0 p-0"
         aria-label="Menú de navegación"
         onCancel={(e) => {
           e.preventDefault();

@@ -1,9 +1,10 @@
 import CinematicIntro from "@/components/CinematicIntro";
 import Navbar from "@/components/Navbar";
 import ValueProposition from "@/components/ValueProposition";
-import PracticeAreasSection from "@/components/PracticeAreasSection";
-import SectorsPreview from "@/components/SectorsPreview";
-import EditorialContact from "@/components/EditorialContact";
+import TeamAndWhatWeDoSection from "@/components/home/TeamAndWhatWeDoSection";
+import MultiFamilyOfficeSection from "@/components/home/MultiFamilyOfficeSection";
+import ObjectivesCarousel from "@/components/home/ObjectivesCarousel";
+import TeamPrioritySection from "@/components/home/TeamPrioritySection";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -13,22 +14,29 @@ export default function Home() {
         Saltar al contenido
       </a>
       <Navbar intro />
-      <main id="inicio">
-        {/* 1. Cinematic Quito automatic introduction */}
+      <main id="inicio" className="relative">
+        {/* SECCIÓN 1 — HERO / VÍDEO DE QUITO (Fijado detrás con revelado tipo cortina Lenz & Staehelin) */}
         <CinematicIntro />
 
-        <div id="contenido-principal" tabIndex={-1}>
-          {/* 2. Propuesta de valor (Warm Ivory) */}
+        <div
+          id="contenido-principal"
+          className="relative z-10 bg-[#202324] shadow-[0_-20px_50px_rgba(0,0,0,0.6)]"
+          tabIndex={-1}
+        >
+          {/* SECCIÓN 2 — EL VALOR DE LAS DECISIONES BIEN ESTRUCTURADAS */}
           <ValueProposition />
 
-          {/* 3. Áreas de Práctica (Dark Night Green, 50/50 layout, no arrows, no numbers) */}
-          <PracticeAreasSection />
+          {/* SECCIÓN 3 Y 4 — SOMOS TU EQUIPO & QUÉ HACEMOS (Lienzo Beige unificado con 3 líneas dinámicas continuas) */}
+          <TeamAndWhatWeDoSection />
 
-          {/* 4. Sectores (Warm Ivory, photographic asymmetrical editorial) */}
-          <SectorsPreview />
+          {/* SECCIÓN 5 — MULTI FAMILY OFFICE */}
+          <MultiFamilyOfficeSection />
 
-          {/* 5. Final Contact Experience (Howard-inspired, Dark Night Green, "Conversemos") */}
-          <EditorialContact />
+          {/* SECCIÓN 6 — NUESTRO OBJETIVO ES CUMPLIR TUS OBJETIVOS */}
+          <ObjectivesCarousel />
+
+          {/* SECCIÓN 7 — SOMOS TU EQUIPO, TÚ NUESTRA PRIORIDAD & REDES */}
+          <TeamPrioritySection />
         </div>
       </main>
       <Footer />
