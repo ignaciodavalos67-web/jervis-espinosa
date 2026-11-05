@@ -38,35 +38,36 @@ const pillars: Pillar[] = [
 ];
 
 export default function ObjectivesCarousel() {
-  const [activeIdx, setActiveIdx] = useState(0);
+  // Trascendencia Patrimonial activa por defecto (índice 2)
+  const [activeIdx, setActiveIdx] = useState(2);
   const activePillar = pillars[activeIdx];
 
   // Dynamic Theme according to active objective:
-  // 0 -> Blanco puro (bg-white) idéntico a la sección siguiente
+  // 0 -> Blanco puro (bg-white)
   // 1 -> Gris oscuro (#202324)
-  // 2 -> Verde noche profundo (#101B1C)
+  // 2 -> Celeste / Petrol Jervis & Espinosa (#274E54)
   const themeClasses = [
     "bg-white text-[#101B1C]",
     "bg-[#202324] text-[#F1EFE9]",
-    "bg-[#101B1C] text-[#F1EFE9]",
+    "bg-[#274E54] text-[#F1EFE9]",
   ][activeIdx];
 
   const wireframeLineColor = [
     "#101B1C", // Verde oscuro sobre fondo blanco
     "#B7C2B2", // Verde salvia sobre fondo gris
-    "#B7C2B2", // Verde salvia sobre fondo verde noche
+    "#E5DDCF", // Marfil / Blanco cálido sobre fondo celeste/petrol
   ][activeIdx];
 
   return (
     <section
       id="nuestro-objetivo"
-      className={`relative w-full py-24 sm:py-32 md:py-40 px-6 sm:px-12 lg:px-20 overflow-hidden select-none transition-colors duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${themeClasses}`}
+      className={`relative w-full pt-6 sm:pt-10 md:pt-12 pb-24 sm:pb-32 md:pb-40 px-6 sm:px-12 lg:px-20 overflow-hidden select-none transition-colors duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${themeClasses}`}
       aria-label="Nuestro objetivo es cumplir tus objetivos"
     >
       <div className="relative z-10 max-w-7xl mx-auto">
         {/* ========================================================
             LAYOUT MÓVIL (Versión Teléfono):
-            1. Animación arriba
+            1. Animación arriba (más grande)
             2. Título de "Nuestro objetivo es cumplir tus objetivos" debajo de la animación
             3. Objetivo activo (Título + Descripción)
             4. Las 3 líneas interactivas de cambio
@@ -74,7 +75,7 @@ export default function ObjectivesCarousel() {
         <div className="flex flex-col md:hidden">
           {/* 1. ANIMACIÓN ARRIBA */}
           <div className="w-full flex justify-center mb-8">
-            <div className="relative w-full max-w-[280px] aspect-square flex items-center justify-center">
+            <div className="relative w-full max-w-[340px] sm:max-w-[400px] aspect-square flex items-center justify-center">
               <KineticSculpture
                 activeShape={activePillar.shapeKey}
                 lineColor={wireframeLineColor}
@@ -128,11 +129,11 @@ export default function ObjectivesCarousel() {
         {/* ========================================================
             LAYOUT DESCRITORIO (Desktop Editorial Asimétrico):
             - Columna Izquierda: Título general + Título del objetivo + Descripción + Líneas
-            - Columna Derecha: Escultura Paramétrica Viva
+            - Columna Derecha: Escultura Paramétrica Viva (más grande y protagónica)
            ======================================================== */}
-        <div className="hidden md:grid grid-cols-12 gap-12 lg:gap-16 items-center">
+        <div className="hidden md:grid grid-cols-12 gap-10 lg:gap-14 items-center">
           {/* Columna Izquierda: Textos y Controladores */}
-          <div className="col-span-7 space-y-8 pr-4">
+          <div className="col-span-6 lg:col-span-6 space-y-8 pr-2">
             {/* Título de la sección */}
             <h2 className="font-serif text-4xl lg:text-5xl xl:text-6xl font-normal leading-[1.08] tracking-[-0.025em]">
               Nuestro objetivo es cumplir tus objetivos<span style={{ color: activePillar.lineColor }}>.</span>
@@ -183,9 +184,9 @@ export default function ObjectivesCarousel() {
             </div>
           </div>
 
-          {/* Columna Derecha: Escultura Paramétrica Viva */}
-          <div className="col-span-5 flex items-center justify-center">
-            <div className="relative w-full max-w-[440px] aspect-square flex items-center justify-center p-4">
+          {/* Columna Derecha: Escultura Paramétrica Viva Ampliada */}
+          <div className="col-span-6 lg:col-span-6 flex items-center justify-center">
+            <div className="relative w-full max-w-[500px] lg:max-w-[580px] xl:max-w-[650px] aspect-square flex items-center justify-center p-2">
               <KineticSculpture
                 activeShape={activePillar.shapeKey}
                 lineColor={wireframeLineColor}

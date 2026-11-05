@@ -61,7 +61,7 @@ export default function ValueProposition() {
       className="relative bg-[#202324] text-[#F1EFE9] pt-24 sm:pt-32 md:pt-40 pb-24 sm:pb-32 md:pb-36 px-6 sm:px-12 lg:px-24 overflow-hidden border-b border-white/10"
       aria-labelledby="value-heading"
     >
-      {/* Background Ampersand Watermark (Logo Jervis & Espinosa) */}
+      {/* Background Ampersand Watermark (Logo Jervis & Espinosa en blanco clásico) */}
       <div
         ref={ampersandRef}
         className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden z-0"

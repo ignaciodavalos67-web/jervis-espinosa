@@ -58,7 +58,7 @@ export default function MultiFamilyOfficeSection() {
             id="mfo-heading"
             className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal leading-[1.08] tracking-[-0.025em] text-[#F1EFE9] mx-auto text-balance"
           >
-            Legal Family Office.
+            Multi Family Office.
           </h2>
 
           <p className="font-serif text-lg sm:text-xl md:text-2xl font-light leading-relaxed text-[#F1EFE9]/85 max-w-2xl mx-auto">
@@ -68,25 +68,59 @@ export default function MultiFamilyOfficeSection() {
       </div>
 
       {/* 
-        High-End Photographic Slider:
-        - Rectangulares con esquinas 100% cuadradas (rounded-none)
-        - Más juntas (gap-3 sm:gap-4)
-        - Deslizamiento lento continuo hacia la derecha (.animate-marquee-right)
-        - Pausa al hover
-        - Sin reflejo dorado al hover
-        - Dentro de cada imagen: SOLO el título blanco
+        MÓVIL (< md): Touch-scrollable nativo con snap.
+        El usuario puede scrolear horizontalmente con el dedo para ver todas las fotos
+        sin tener que esperar a que vuelva a aparecer la animación automática.
       */}
-      <div className="relative w-full overflow-hidden">
-        {/* Soft edge fade masks matching the dark grey background */}
-        <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-r from-[#202324] to-transparent z-20 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-l from-[#202324] to-transparent z-20 pointer-events-none" />
+      <div className="flex md:hidden overflow-x-auto snap-x snap-mandatory gap-4 px-6 py-2 pb-6 scroll-smooth select-none [-webkit-overflow-scrolling:touch] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        {cards.map((card, idx) => (
+          <Link
+            key={`mobile-${card.id}-${idx}`}
+            href="/#contacto"
+            className="group relative flex-shrink-0 snap-center w-[78vw] max-w-[320px] h-[480px] rounded-none overflow-hidden border-none shadow-2xl bg-[#202324] transition-all duration-300 active:scale-[0.98]"
+            aria-label={`${card.title} — Ir a contacto`}
+          >
+            {/* Photographic Background */}
+            <div className="absolute inset-0 w-full h-full overflow-hidden">
+              <Image
+                src={card.imageSrc}
+                alt={card.imageAlt}
+                fill
+                sizes="320px"
+                className="object-cover object-center"
+                priority={idx < 2}
+              />
+            </div>
 
-        <div className="flex gap-3 sm:gap-4 w-max animate-marquee-right py-2 px-2">
+            {/* Sophisticated Dark Gradient Vignette for High Text Contrast */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 via-45% to-transparent pointer-events-none" />
+
+            {/* Solo el título blanco en la parte inferior */}
+            <div className="absolute bottom-0 left-0 right-0 p-6 z-10">
+              <h3 className="font-serif text-2xl font-normal leading-snug text-[#F1EFE9]">
+                {card.title}
+              </h3>
+            </div>
+          </Link>
+        ))}
+      </div>
+
+      {/* 
+        ESCRITORIO (>= md): Deslizamiento infinito continuo automático (.animate-marquee-right)
+        - Deslizamiento suave continuo
+        - El texto crece en hover
+      */}
+      <div className="hidden md:block relative w-full overflow-hidden">
+        {/* Soft edge fade masks matching the dark grey background */}
+        <div className="absolute left-0 top-0 bottom-0 w-28 bg-gradient-to-r from-[#202324] to-transparent z-20 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-28 bg-gradient-to-l from-[#202324] to-transparent z-20 pointer-events-none" />
+
+        <div className="flex gap-4 w-max animate-marquee-right py-2 px-2">
           {marqueeCards.map((card, idx) => (
             <Link
               key={`${card.id}-${idx}`}
               href="/#contacto"
-              className="group relative flex-shrink-0 w-[280px] sm:w-[350px] md:w-[400px] h-[480px] sm:h-[550px] md:h-[620px] rounded-none overflow-hidden border-none shadow-2xl bg-[#202324] transition-all duration-500"
+              className="group relative flex-shrink-0 w-[350px] md:w-[400px] h-[550px] md:h-[620px] rounded-none overflow-hidden border-none shadow-2xl bg-[#202324] transition-all duration-500"
               aria-label={`${card.title} — Ir a contacto`}
             >
               {/* Photographic Background */}
@@ -95,14 +129,14 @@ export default function MultiFamilyOfficeSection() {
                   src={card.imageSrc}
                   alt={card.imageAlt}
                   fill
-                  sizes="(max-width: 640px) 280px, (max-width: 768px) 350px, 400px"
+                  sizes="(max-width: 768px) 350px, 400px"
                   className="object-cover object-center transition-transform duration-1000 ease-out group-hover:scale-106"
                   priority={idx < 4}
                 />
               </div>
 
               {/* Sophisticated Dark Gradient Vignette for High Text Contrast */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 via-45% to-transparent transition-opacity duration-500 group-hover:opacity-90" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 via-45% to-transparent transition-opacity duration-500 group-hover:opacity-90 pointer-events-none" />
 
               {/* Solo el título blanco en la parte inferior — se agranda al pasar el cursor */}
               <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8 z-10">
@@ -123,7 +157,7 @@ export default function MultiFamilyOfficeSection() {
         <Link
           href="/#contacto"
           className="group inline-flex items-center justify-center py-4 px-8 transition-all duration-300 cursor-pointer"
-          aria-label="Explorar servicios de Legal Family Office"
+          aria-label="Explorar servicios de Multi Family Office"
         >
           <span className="font-sans text-lg sm:text-xl md:text-2xl uppercase tracking-[0.22em] font-medium text-[#C6B48F] transition-all duration-300 ease-out group-hover:scale-125 group-hover:tracking-[0.26em] group-hover:text-[#F1EFE9] inline-block transform-origin-center will-change-transform">
             Explorar servicios

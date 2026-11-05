@@ -26,14 +26,14 @@ export default function Home() {
           {/* SECCIÓN 2 — EL VALOR DE LAS DECISIONES BIEN ESTRUCTURADAS */}
           <ValueProposition />
 
-          {/* SECCIÓN 3 Y 4 — SOMOS TU EQUIPO & QUÉ HACEMOS (Lienzo Beige unificado con 3 líneas dinámicas continuas) */}
+          {/* SECCIÓN 3 Y 4 — SOMOS TU EQUIPO & QUÉ HACEMOS */}
           <TeamAndWhatWeDoSection />
 
-          {/* SECCIÓN 5 — MULTI FAMILY OFFICE */}
-          <MultiFamilyOfficeSection />
-
-          {/* SECCIÓN 6 — NUESTRO OBJETIVO ES CUMPLIR TUS OBJETIVOS */}
+          {/* SECCIÓN 5 — NUESTRO OBJETIVO ES CUMPLIR TUS OBJETIVOS */}
           <ObjectivesCarousel />
+
+          {/* SECCIÓN 6 — MULTI FAMILY OFFICE */}
+          <MultiFamilyOfficeSection />
 
           {/* SECCIÓN 7 — SOMOS TU EQUIPO, TÚ NUESTRA PRIORIDAD & REDES */}
           <TeamPrioritySection />
